@@ -860,10 +860,10 @@
         <!-- PROJET MESPI -->
         <div class="card-item">
           <div class="card-header">
-            <span class="card-title" data-i18n="projects.p1Title">Projet MESPI - Brassard Électronique Connecté</span>
+            <span class="card-title" data-i18n="projects.p1Title">Projet MESPI - Brassard Électronique Connecté (Athletix-Data)</span>
             <span class="card-date" data-i18n="projects.p1Date">2026 - 2027 (1 an)</span>
           </div>
-          <p class="card-sub" data-i18n="projects.p1Sub">Projet de groupe en école d'ingénieurs</p>
+          <p class="card-sub" data-i18n="projects.p1Sub">Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Rôle : Chef de Projet & Assurance Qualité</p>
 
           <div class="project-card-content">
             <!-- CARROUSEL DES CAPTURES D'ÉCRAN (FORMAT PORTRAIT) -->
@@ -907,16 +907,28 @@
 
             <!-- TEXTE À DROITE DE L'IMAGE -->
             <div class="project-text">
-              <p data-i18n="projects.p1Desc">Conception et réalisation d'un prototype de brassard électronique connecté pour mesurer l'activité musculaire et estimer la fatigue des sportifs.</p>
+              <p data-i18n="projects.p1Desc">
+                Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) capable de mesurer l'activité musculaire électromyographique (sEMG) en temps réel, d'analyser l'intensité de contraction et d'estimer la fatigue des athlètes.
+              </p>
+
+              <ul class="project-list" style="margin-top: 0.8rem;">
+                <li><strong data-i18n="projects.p1Li1Strong">Gestion de Projet :</strong> <span data-i18n="projects.p1Li1Text">Pilotage de la planification (MPM, Diagramme de Gantt sur 16 semaines), cadrage SCRUM et conformité réglementaire (RGPD & hébergement HDS).</span></li>
+                <li><strong data-i18n="projects.p1Li2Strong">Chaîne d'Acquisition :</strong> <span data-i18n="projects.p1Li2Text">Capteur MyoWare 2.0 (redressement & lissage du signal), microcontrôleur SparkFun ESP32-S3 avec numérisation ADC 12 bits à 500 Hz.</span></li>
+                <li><strong data-i18n="projects.p1Li3Strong">Traitement du Signal :</strong> <span data-i18n="projects.p1Li3Text">Calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) pour détecter les seuils critiques de fatigue (>75%).</span></li>
+                <li><strong data-i18n="projects.p1Li4Strong">Communication & Application :</strong> <span data-i18n="projects.p1Li4Text">Transmission sans fil via Bluetooth Low Energy (profil GATT custom, débit 50 Hz) vers l'application mobile Flutter d'affichage temps réel.</span></li>
+              </ul>
             </div>
           </div>
 
           <div class="tags" style="margin-top: 1rem;">
+            <span class="tag">SparkFun ESP32-S3</span>
+            <span class="tag">Capteur MyoWare 2.0 (sEMG)</span>
             <span class="tag">MATLAB/Simulink</span>
-            <span class="tag">Flutter</span>
-            <span class="tag">Bluetooth</span>
+            <span class="tag">Flutter (Dart)</span>
+            <span class="tag">Bluetooth Low Energy (BLE)</span>
+            <span class="tag">Méthode SCRUM / PERT / Gantt</span>
+            <span class="tag">Santé Connectée (HDS / RGPD)</span>
             <span class="tag" data-i18n="tags.print3d">Impression 3D</span>
-            <span class="tag" data-i18n="tags.electronics">Électronique</span>
           </div>
 
           <!-- DÉROULANT : DÉMO + CODE SIMULATION (SIMULINK) -->
@@ -1210,10 +1222,14 @@
         },
         projects: {
           title: "Mes Projets",
-          p1Title: "Projet MESPI - Brassard Électronique Connecté",
+          p1Title: "Projet MESPI - Brassard Électronique Connecté (Athletix-Data)",
           p1Date: "2026 - 2027 (1 an)",
-          p1Sub: "Projet de groupe en école d'ingénieurs",
-          p1Desc: "Conception et réalisation d'un prototype de brassard électronique connecté pour mesurer l'activité musculaire et estimer la fatigue des sportifs.",
+          p1Sub: "Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Rôle : Chef de Projet & Assurance Qualité",
+          p1Desc: "Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) capable de mesurer l'activité musculaire électromyographique (sEMG) en temps réel, d'analyser l'intensité de contraction et d'estimer la fatigue des athlètes.",
+          p1Li1Strong: "Gestion de Projet :", p1Li1Text: "Pilotage de la planification (MPM, Diagramme de Gantt sur 16 semaines), cadrage SCRUM et conformité réglementaire (RGPD & hébergement HDS).",
+          p1Li2Strong: "Chaîne d'Acquisition :", p1Li2Text: "Capteur MyoWare 2.0 (redressement & lissage du signal), microcontrôleur SparkFun ESP32-S3 avec numérisation ADC 12 bits à 500 Hz.",
+          p1Li3Strong: "Traitement du Signal :", p1Li3Text: "Calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) pour détecter les seuils critiques de fatigue (>75%).",
+          p1Li4Strong: "Communication & Application :", p1Li4Text: "Transmission sans fil via Bluetooth Low Energy (profil GATT custom, débit 50 Hz) vers l'application mobile Flutter d'affichage temps réel.",
           p1Details: "Consulter le projet (Démo & Code Simulation)",
           p1Demo: "Démo",
           p1Sim: "Code Simulation (Simulink)",
@@ -1282,10 +1298,14 @@
         },
         projects: {
           title: "My Projects",
-          p1Title: "MESPI Project - Connected Electronic Armband",
+          p1Title: "MESPI Project - Connected Electronic Armband (Athletix-Data)",
           p1Date: "2026 - 2027 (1 year)",
-          p1Sub: "Engineering school group project",
-          p1Desc: "Design and development of a connected electronic armband prototype to measure muscle activity and estimate athlete fatigue.",
+          p1Sub: "Engineering school group project (EPISEN / UPEC) • Role: Project Manager & QA",
+          p1Desc: "Design and development of a wearable biomedical device (Athletix-Data) measuring real-time electromyographic (sEMG) muscle activity, analyzing contraction intensity, and predicting athlete fatigue.",
+          p1Li1Strong: "Project Management:", p1Li1Text: "Planning & scheduling (MPM, 16-week Gantt Chart), SCRUM framework, and compliance management (GDPR & HDS hosting).",
+          p1Li2Strong: "Acquisition Chain:", p1Li2Text: "MyoWare 2.0 sensor (signal rectification & smoothing), SparkFun ESP32-S3 microcontroller with 12-bit ADC digitisation at 500 Hz.",
+          p1Li3Strong: "Signal Processing:", p1Li3Text: "Root Mean Square (RMS) calculation over 200 ms sliding window and normalisation (%MVC) to detect critical fatigue thresholds (>75%).",
+          p1Li4Strong: "Communication & App:", p1Li4Text: "Wireless transmission via Bluetooth Low Energy (custom GATT profile, 50 Hz rate) to the Flutter mobile app for real-time visualization.",
           p1Details: "View Project (Demo & Simulation Code)",
           p1Demo: "Demo",
           p1Sim: "Simulation Code (Simulink)",
