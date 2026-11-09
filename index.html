@@ -499,6 +499,21 @@
       transform: scale(1.25);
     }
 
+    /* ===== VARIANTE PORTRAIT (captures d'écran de téléphone, hautes et étroites) ===== */
+    .ihm-carousel.portrait {
+      width: 260px;
+      height: 500px;
+    }
+
+    .ihm-carousel.portrait .ihm-carousel-viewport {
+      height: 470px;
+    }
+
+    .ihm-carousel.portrait .ihm-carousel-slide img {
+      object-fit: contain;
+      background: var(--bg-card);
+    }
+
     .project-text {
       flex: 1;
     }
@@ -596,38 +611,6 @@
       transform: translateY(-1px);
     }
 
-    /* ===== GALERIE PHOTOS MESPI ===== */
-    .gallery-grid {
-      padding: 1rem 1.2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .gallery-grid a {
-      display: block;
-      border-radius: 0.6rem;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .gallery-grid a:hover {
-      transform: translateY(-3px);
-      border-color: var(--primary);
-    }
-
-    .gallery-grid img {
-      display: block;
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
     .skills-container { display: flex; flex-direction: column; gap: 2rem; }
     .skill-category h3 { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 0.85rem; }
     .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
@@ -663,6 +646,7 @@
       .project-card-content { flex-direction: column; align-items: stretch; }
       .project-img-thumb { width: 100%; max-width: 100%; }
       .ihm-carousel { width: 100%; max-width: 100%; }
+      .ihm-carousel.portrait { width: 100%; max-width: 280px; margin: 0 auto; }
     }
 
     /* ===== OPTIMISATION MOBILE (< 768px) ===== */
@@ -731,14 +715,6 @@
 
       .btn-action {
         width: 100%;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-grid img {
-        height: 130px;
       }
 
       .tag {
@@ -888,7 +864,53 @@
             <span class="card-date" data-i18n="projects.p1Date">2026 - 2027 (1 an)</span>
           </div>
           <p class="card-sub" data-i18n="projects.p1Sub">Projet de groupe en école d'ingénieurs</p>
-          <p style="margin-top: 0.5rem;" data-i18n="projects.p1Desc">Conception et réalisation d'un prototype de brassard électronique connecté pour mesurer l'activité musculaire et estimer la fatigue des sportifs.</p>
+
+          <div class="project-card-content">
+            <!-- CARROUSEL DES CAPTURES D'ÉCRAN (FORMAT PORTRAIT) -->
+            <div class="ihm-carousel portrait" aria-label="Captures d'écran de l'application du projet MESPI">
+              <div class="ihm-carousel-viewport">
+                <div class="ihm-carousel-track">
+                  <div class="ihm-carousel-slide">
+                    <img src="images/MESPI/Image-MESPI.jpeg" alt="Projet MESPI - capture 1">
+                  </div>
+                  <div class="ihm-carousel-slide">
+                    <img src="images/MESPI/Image2-MESPI.jpeg" alt="Projet MESPI - capture 2">
+                  </div>
+                  <div class="ihm-carousel-slide">
+                    <img src="images/MESPI/Image3-MESPI.jpeg" alt="Projet MESPI - capture 3">
+                  </div>
+                  <div class="ihm-carousel-slide">
+                    <img src="images/MESPI/Image4-MESPI.jpeg" alt="Projet MESPI - capture 4">
+                  </div>
+                  <div class="ihm-carousel-slide">
+                    <img src="images/MESPI/Image5-MESPI.jpeg" alt="Projet MESPI - capture 5">
+                  </div>
+                </div>
+              </div>
+
+              <div class="ihm-carousel-controls">
+                <button type="button" class="ihm-carousel-arrow ihm-carousel-prev" aria-label="Image précédente">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="ihm-carousel-dots" aria-label="Choisir une capture">
+                  <button type="button" class="ihm-carousel-dot active" aria-label="Afficher l'image 1" aria-current="true"></button>
+                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 2"></button>
+                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 3"></button>
+                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 4"></button>
+                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 5"></button>
+                </div>
+                <button type="button" class="ihm-carousel-arrow ihm-carousel-next" aria-label="Image suivante">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- TEXTE À DROITE DE L'IMAGE -->
+            <div class="project-text">
+              <p data-i18n="projects.p1Desc">Conception et réalisation d'un prototype de brassard électronique connecté pour mesurer l'activité musculaire et estimer la fatigue des sportifs.</p>
+            </div>
+          </div>
+
           <div class="tags" style="margin-top: 1rem;">
             <span class="tag">MATLAB/Simulink</span>
             <span class="tag">Flutter</span>
@@ -909,31 +931,6 @@
               </a>
               <a href="AthletixData_EMG_Simulation.slx" download class="btn-action">
                 <i class="fas fa-file-code" style="color: #3b82f6;"></i> <span data-i18n="projects.p1Sim">Code Simulation (Simulink)</span>
-              </a>
-            </div>
-          </details>
-
-          <!-- DÉROULANT : GALERIE D'IMAGES -->
-          <details class="project-details">
-            <summary>
-              <span><i class="fas fa-images"></i> <span data-i18n="projects.p1Gallery">Galerie d'images du projet</span></span>
-              <i class="fas fa-chevron-down"></i>
-            </summary>
-            <div class="gallery-grid">
-              <a href="images/MESPI/Image-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
-                <img src="images/MESPI/Image-MESPI.jpeg" alt="Projet MESPI - image 1" loading="lazy">
-              </a>
-              <a href="images/MESPI/Image2-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
-                <img src="images/MESPI/Image2-MESPI.jpeg" alt="Projet MESPI - image 2" loading="lazy">
-              </a>
-              <a href="images/MESPI/Image3-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
-                <img src="images/MESPI/Image3-MESPI.jpeg" alt="Projet MESPI - image 3" loading="lazy">
-              </a>
-              <a href="images/MESPI/Image4-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
-                <img src="images/MESPI/Image4-MESPI.jpeg" alt="Projet MESPI - image 4" loading="lazy">
-              </a>
-              <a href="images/MESPI/Image5-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
-                <img src="images/MESPI/Image5-MESPI.jpeg" alt="Projet MESPI - image 5" loading="lazy">
               </a>
             </div>
           </details>
@@ -1220,7 +1217,6 @@
           p1Details: "Consulter le projet (Démo & Code Simulation)",
           p1Demo: "Démo",
           p1Sim: "Code Simulation (Simulink)",
-          p1Gallery: "Galerie d'images du projet",
           p2Title: "Projet ECUE Systèmes de Mesures Nomades - IHM MATLAB",
           p2Sub: "Projet de groupe à l'EPISEN (Groupe Star Wars) • ECUE 325, groupe de 3, encadré par Régis Fournier",
           p2Intro: "Chaîne complète de simulation, d'analyse FFT et de correction de signaux déformés, intégrée dans une IHM MATLAB App Designer.",
@@ -1293,7 +1289,6 @@
           p1Details: "View Project (Demo & Simulation Code)",
           p1Demo: "Demo",
           p1Sim: "Simulation Code (Simulink)",
-          p1Gallery: "Project image gallery",
           p2Title: "Nomadic Measurement Systems Project - MATLAB GUI",
           p2Sub: "Group project at EPISEN (Star Wars Team) • ECUE 325, team of 3, supervised by Régis Fournier",
           p2Intro: "Complete simulation, FFT analysis, and signal correction pipeline integrated into a MATLAB App Designer GUI.",
@@ -1362,14 +1357,13 @@
     if (savedLang) setLanguage(savedLang);
 
     /* ===== CARROUSEL AUTOMATIQUE DES 4 CAPTURES IHM ===== */
-    const ihmCarousel = document.querySelector('.ihm-carousel');
-
-    if (ihmCarousel) {
-      const track = document.getElementById('ihm-carousel-track');
+    document.querySelectorAll('.ihm-carousel').forEach((ihmCarousel) => {
+      const track = ihmCarousel.querySelector('.ihm-carousel-track');
       const slides = ihmCarousel.querySelectorAll('.ihm-carousel-slide');
       const dots = ihmCarousel.querySelectorAll('.ihm-carousel-dot');
-      const previousButton = document.getElementById('ihm-carousel-prev');
-      const nextButton = document.getElementById('ihm-carousel-next');
+      const arrows = ihmCarousel.querySelectorAll('.ihm-carousel-arrow');
+      const previousButton = arrows[0];
+      const nextButton = arrows[1];
 
       let currentSlide = 0;
       let carouselTimer = null;
@@ -1434,7 +1428,7 @@
       });
 
       startIhmCarousel();
-    }
+    });
   </script>
 </body>
 </html>
