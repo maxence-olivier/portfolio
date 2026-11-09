@@ -596,6 +596,38 @@
       transform: translateY(-1px);
     }
 
+    /* ===== GALERIE PHOTOS MESPI ===== */
+    .gallery-grid {
+      padding: 1rem 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .gallery-grid a {
+      display: block;
+      border-radius: 0.6rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .gallery-grid a:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+    .gallery-grid img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
     .skills-container { display: flex; flex-direction: column; gap: 2rem; }
     .skill-category h3 { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 0.85rem; }
     .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
@@ -699,6 +731,14 @@
 
       .btn-action {
         width: 100%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid img {
+        height: 130px;
       }
 
       .tag {
@@ -856,6 +896,47 @@
             <span class="tag" data-i18n="tags.print3d">Impression 3D</span>
             <span class="tag" data-i18n="tags.electronics">Électronique</span>
           </div>
+
+          <!-- DÉROULANT : DÉMO + CODE SIMULATION (SIMULINK) -->
+          <details class="project-details">
+            <summary>
+              <span><i class="fas fa-paperclip"></i> <span data-i18n="projects.p1Details">Consulter le projet (Démo & Code Simulation)</span></span>
+              <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="project-actions">
+              <a href="https://valentin-auger-laboratoire.github.io/athletix-data/" target="_blank" rel="noopener noreferrer" class="btn-action">
+                <i class="fas fa-play-circle" style="color: var(--primary);"></i> <span data-i18n="projects.p1Demo">Démo</span>
+              </a>
+              <a href="AthletixData_EMG_Simulation.slx" download class="btn-action">
+                <i class="fas fa-file-code" style="color: #3b82f6;"></i> <span data-i18n="projects.p1Sim">Code Simulation (Simulink)</span>
+              </a>
+            </div>
+          </details>
+
+          <!-- DÉROULANT : GALERIE D'IMAGES -->
+          <details class="project-details">
+            <summary>
+              <span><i class="fas fa-images"></i> <span data-i18n="projects.p1Gallery">Galerie d'images du projet</span></span>
+              <i class="fas fa-chevron-down"></i>
+            </summary>
+            <div class="gallery-grid">
+              <a href="images/MESPI/Image-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
+                <img src="images/MESPI/Image-MESPI.jpeg" alt="Projet MESPI - image 1" loading="lazy">
+              </a>
+              <a href="images/MESPI/Image2-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
+                <img src="images/MESPI/Image2-MESPI.jpeg" alt="Projet MESPI - image 2" loading="lazy">
+              </a>
+              <a href="images/MESPI/Image3-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
+                <img src="images/MESPI/Image3-MESPI.jpeg" alt="Projet MESPI - image 3" loading="lazy">
+              </a>
+              <a href="images/MESPI/Image4-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
+                <img src="images/MESPI/Image4-MESPI.jpeg" alt="Projet MESPI - image 4" loading="lazy">
+              </a>
+              <a href="images/MESPI/Image5-MESPI.jpeg" target="_blank" rel="noopener noreferrer">
+                <img src="images/MESPI/Image5-MESPI.jpeg" alt="Projet MESPI - image 5" loading="lazy">
+              </a>
+            </div>
+          </details>
         </div>
 
         <!-- PROJET ECUE SYSTEMES DE MESURES NOMADES -->
@@ -938,7 +1019,6 @@
               <a href="Projet_MATLAB_Systemes_Mesures_Nomades.zip" download class="btn-action">
                 <i class="fas fa-file-archive" style="color: #eab308;"></i> <span data-i18n="projects.p2Zip">Code Source MATLAB (.zip)</span>
               </a>
-              <!-- BOUTON AJOUTÉ : DEMO WEB INTERACTIVE -->
               <a href="IHM-MATLAB.html" class="btn-action">
                 <i class="fas fa-play-circle" style="color: var(--primary);"></i> <span data-i18n="projects.p2Demo">Tester l'IHM (Démo Web)</span>
               </a>
@@ -1137,6 +1217,10 @@
           p1Date: "2026 - 2027 (1 an)",
           p1Sub: "Projet de groupe en école d'ingénieurs",
           p1Desc: "Conception et réalisation d'un prototype de brassard électronique connecté pour mesurer l'activité musculaire et estimer la fatigue des sportifs.",
+          p1Details: "Consulter le projet (Démo & Code Simulation)",
+          p1Demo: "Démo",
+          p1Sim: "Code Simulation (Simulink)",
+          p1Gallery: "Galerie d'images du projet",
           p2Title: "Projet ECUE Systèmes de Mesures Nomades - IHM MATLAB",
           p2Sub: "Projet de groupe à l'EPISEN (Groupe Star Wars) • ECUE 325, groupe de 3, encadré par Régis Fournier",
           p2Intro: "Chaîne complète de simulation, d'analyse FFT et de correction de signaux déformés, intégrée dans une IHM MATLAB App Designer.",
@@ -1206,6 +1290,10 @@
           p1Date: "2026 - 2027 (1 year)",
           p1Sub: "Engineering school group project",
           p1Desc: "Design and development of a connected electronic armband prototype to measure muscle activity and estimate athlete fatigue.",
+          p1Details: "View Project (Demo & Simulation Code)",
+          p1Demo: "Demo",
+          p1Sim: "Simulation Code (Simulink)",
+          p1Gallery: "Project image gallery",
           p2Title: "Nomadic Measurement Systems Project - MATLAB GUI",
           p2Sub: "Group project at EPISEN (Star Wars Team) • ECUE 325, team of 3, supervised by Régis Fournier",
           p2Intro: "Complete simulation, FFT analysis, and signal correction pipeline integrated into a MATLAB App Designer GUI.",
