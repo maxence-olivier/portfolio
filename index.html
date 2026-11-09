@@ -905,29 +905,32 @@
               </div>
             </div>
 
-            <!-- TEXTE À DROITE DE L'IMAGE -->
+            <!-- TEXTE À DROITE DE L'IMAGE ENRICHI -->
             <div class="project-text">
               <p data-i18n="projects.p1Desc">
-                Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) capable de mesurer l'activité musculaire électromyographique (sEMG) en temps réel, d'analyser l'intensité de contraction et d'estimer la fatigue des athlètes.
+                Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) mesurant l'activité musculaire électromyographique (sEMG) en temps réel, afin d'évaluer l'intensité de contraction et d'anticiper la fatigue neuromusculaire chez l'athlète.
               </p>
 
               <ul class="project-list" style="margin-top: 0.8rem;">
-                <li><strong data-i18n="projects.p1Li1Strong">Gestion de Projet :</strong> <span data-i18n="projects.p1Li1Text">Pilotage de la planification (MPM, Diagramme de Gantt sur 16 semaines), cadrage SCRUM et conformité réglementaire (RGPD & hébergement HDS).</span></li>
-                <li><strong data-i18n="projects.p1Li2Strong">Chaîne d'Acquisition :</strong> <span data-i18n="projects.p1Li2Text">Capteur MyoWare 2.0 (redressement & lissage du signal), microcontrôleur SparkFun ESP32-S3 avec numérisation ADC 12 bits à 500 Hz.</span></li>
-                <li><strong data-i18n="projects.p1Li3Strong">Traitement du Signal :</strong> <span data-i18n="projects.p1Li3Text">Calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) pour détecter les seuils critiques de fatigue (>75%).</span></li>
-                <li><strong data-i18n="projects.p1Li4Strong">Communication & Application :</strong> <span data-i18n="projects.p1Li4Text">Transmission sans fil via Bluetooth Low Energy (profil GATT custom, débit 50 Hz) vers l'application mobile Flutter d'affichage temps réel.</span></li>
+                <li><strong data-i18n="projects.p1Li1Strong">Gestion de Projet & Qualité :</strong> <span data-i18n="projects.p1Li1Text">Pilotage de l'équipe (4 membres, 180 HM), modélisation des délais (graphe MPM, PERT, Gantt sur 16 semaines), cadrage Agile/SCRUM et respect de la conformité médicale (RGPD, hébergement certifié HDS).</span></li>
+                <li><strong data-i18n="projects.p1Li2Strong">Architecture Électronique :</strong> <span data-i18n="projects.p1Li2Text">Intégration d'un capteur sEMG avec redressement/lissage d'enveloppe analogique, numérisation sur ADC 12 bits à 500 Hz (pas de quantification de 0,806 mV) et alimentation autonome via batterie LiPo.</span></li>
+                <li><strong data-i18n="projects.p1Li3Strong">Traitements & Mathématiques :</strong> <span data-i18n="projects.p1Li3Text">Modélisation complète sous Simulink, filtrage passe-bas à 5 Hz, calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) avec alertes automatiques au-delà du seuil de 75%.</span></li>
+                <li><strong data-i18n="projects.p1Li4Strong">Communication & Application Mobile :</strong> <span data-i18n="projects.p1Li4Text">Transmission sans fil via Bluetooth Low Energy (profil GATT sur mesure à 50 Hz, paquets de 8 octets) vers une interface mobile Flutter intégrant des conseils IA personnalisés.</span></li>
               </ul>
             </div>
           </div>
 
+          <!-- NOUVEAUX TAGS RESTRUCTURÉS -->
           <div class="tags" style="margin-top: 1rem;">
-            <span class="tag">SparkFun ESP32-S3</span>
-            <span class="tag">Capteur MyoWare 2.0 (sEMG)</span>
+            <span class="tag" data-i18n="tags.electronics">Électronique</span>
+            <span class="tag" data-i18n="tags.sensors">Capteurs & Mesures</span>
+            <span class="tag" data-i18n="tags.signal">Traitement du signal (sEMG)</span>
+            <span class="tag" data-i18n="tags.math">Mathématiques</span>
             <span class="tag">MATLAB/Simulink</span>
             <span class="tag">Flutter (Dart)</span>
             <span class="tag">Bluetooth Low Energy (BLE)</span>
-            <span class="tag">Méthode SCRUM / PERT / Gantt</span>
-            <span class="tag">Santé Connectée (HDS / RGPD)</span>
+            <span class="tag">Gestion de Projet (SCRUM / Gantt)</span>
+            <span class="tag" data-i18n="tags.health">Santé Connectée (HDS / RGPD)</span>
             <span class="tag" data-i18n="tags.print3d">Impression 3D</span>
           </div>
 
@@ -1225,11 +1228,11 @@
           p1Title: "Projet MESPI - Brassard Électronique Connecté (Athletix-Data)",
           p1Date: "2026 - 2027 (1 an)",
           p1Sub: "Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Rôle : Chef de Projet & Assurance Qualité",
-          p1Desc: "Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) capable de mesurer l'activité musculaire électromyographique (sEMG) en temps réel, d'analyser l'intensité de contraction et d'estimer la fatigue des athlètes.",
-          p1Li1Strong: "Gestion de Projet :", p1Li1Text: "Pilotage de la planification (MPM, Diagramme de Gantt sur 16 semaines), cadrage SCRUM et conformité réglementaire (RGPD & hébergement HDS).",
-          p1Li2Strong: "Chaîne d'Acquisition :", p1Li2Text: "Capteur MyoWare 2.0 (redressement & lissage du signal), microcontrôleur SparkFun ESP32-S3 avec numérisation ADC 12 bits à 500 Hz.",
-          p1Li3Strong: "Traitement du Signal :", p1Li3Text: "Calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) pour détecter les seuils critiques de fatigue (>75%).",
-          p1Li4Strong: "Communication & Application :", p1Li4Text: "Transmission sans fil via Bluetooth Low Energy (profil GATT custom, débit 50 Hz) vers l'application mobile Flutter d'affichage temps réel.",
+          p1Desc: "Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) mesurant l'activité musculaire électromyographique (sEMG) en temps réel, afin d'évaluer l'intensité de contraction et d'anticiper la fatigue neuromusculaire chez l'athlète.",
+          p1Li1Strong: "Gestion de Projet & Qualité :", p1Li1Text: "Pilotage de l'équipe (4 membres, 180 HM), modélisation des délais (graphe MPM, PERT, Gantt sur 16 semaines), cadrage Agile/SCRUM et respect de la conformité médicale (RGPD, hébergement certifié HDS).",
+          p1Li2Strong: "Architecture Électronique :", p1Li2Text: "Intégration d'un capteur sEMG avec redressement/lissage d'enveloppe analogique, numérisation sur ADC 12 bits à 500 Hz (pas de quantification de 0,806 mV) et alimentation autonome via batterie LiPo.",
+          p1Li3Strong: "Traitements & Mathématiques :", p1Li3Text: "Modélisation complète sous Simulink, filtrage passe-bas à 5 Hz, calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) avec alertes automatiques au-delà du seuil de 75%.",
+          p1Li4Strong: "Communication & Application Mobile :", p1Li4Text: "Transmission sans fil via Bluetooth Low Energy (profil GATT sur mesure à 50 Hz, paquets de 8 octets) vers une interface mobile Flutter intégrant des conseils IA personnalisés.",
           p1Details: "Consulter le projet (Démo & Code Simulation)",
           p1Demo: "Démo",
           p1Sim: "Code Simulation (Simulink)",
@@ -1261,8 +1264,8 @@
           p4Pdf: "Présentation (PDF)", p4Demo: "Tester la simulation (Démo Web)"
         },
         tags: {
-          print3d: "Impression 3D", electronics: "Électronique", signal: "Traitement du signal (FFT)", kinematics: "Modélisation cinématique", mechanics: "Mécanique", simulation: "Simulation",
-          sensors: "Capteurs & Mesures", regression: "Régression linéaire", teamwork: "Travail de groupe", health: "Santé connectée"
+          print3d: "Impression 3D", electronics: "Électronique", signal: "Traitement du signal (sEMG)", kinematics: "Modélisation cinématique", mechanics: "Mécanique", simulation: "Simulation",
+          sensors: "Capteurs & Mesures", math: "Mathématiques", regression: "Régression linéaire", teamwork: "Travail de groupe", health: "Santé connectée (HDS / RGPD)"
         },
         skills: {
           title: "Compétences & Langues", cat1: "Langages Informatiques", cat2: "Logiciels & Environnements", cat3: "Langues",
@@ -1301,11 +1304,11 @@
           p1Title: "MESPI Project - Connected Electronic Armband (Athletix-Data)",
           p1Date: "2026 - 2027 (1 year)",
           p1Sub: "Engineering school group project (EPISEN / UPEC) • Role: Project Manager & QA",
-          p1Desc: "Design and development of a wearable biomedical device (Athletix-Data) measuring real-time electromyographic (sEMG) muscle activity, analyzing contraction intensity, and predicting athlete fatigue.",
-          p1Li1Strong: "Project Management:", p1Li1Text: "Planning & scheduling (MPM, 16-week Gantt Chart), SCRUM framework, and compliance management (GDPR & HDS hosting).",
-          p1Li2Strong: "Acquisition Chain:", p1Li2Text: "MyoWare 2.0 sensor (signal rectification & smoothing), SparkFun ESP32-S3 microcontroller with 12-bit ADC digitisation at 500 Hz.",
-          p1Li3Strong: "Signal Processing:", p1Li3Text: "Root Mean Square (RMS) calculation over 200 ms sliding window and normalisation (%MVC) to detect critical fatigue thresholds (>75%).",
-          p1Li4Strong: "Communication & App:", p1Li4Text: "Wireless transmission via Bluetooth Low Energy (custom GATT profile, 50 Hz rate) to the Flutter mobile app for real-time visualization.",
+          p1Desc: "Design and development of a wearable biomedical device (Athletix-Data) measuring real-time electromyographic (sEMG) muscle activity to evaluate contraction intensity and prevent neuromuscular fatigue in athletes.",
+          p1Li1Strong: "Project Management & QA:", p1Li1Text: "Team management (4 members, 180 Person-Hours), timeline modeling (MPM graph, PERT, 16-week Gantt chart), Agile/SCRUM methodology, and compliance oversight (GDPR, HDS certified hosting).",
+          p1Li2Strong: "Electronic Architecture:", p1Li2Text: "Integration of an sEMG sensor with analog envelope smoothing, 12-bit ADC digitization at 500 Hz (0.806 mV resolution step), and autonomous LiPo battery management.",
+          p1Li3Strong: "Signal Processing & Math:", p1Li3Text: "Full Simulink modeling, 5 Hz low-pass filtering, Root Mean Square (RMS) calculation over a 200 ms sliding window, and normalisation (%MVC) with automated alerts above 75%.",
+          p1Li4Strong: "Communication & Mobile App:", p1Li4Text: "Wireless transmission via Bluetooth Low Energy (custom 50 Hz GATT profile, 8-byte packets) to a Flutter mobile app featuring AI-driven personalized insights.",
           p1Details: "View Project (Demo & Simulation Code)",
           p1Demo: "Demo",
           p1Sim: "Simulation Code (Simulink)",
@@ -1337,8 +1340,8 @@
           p4Pdf: "Presentation (PDF)", p4Demo: "Try the Simulation (Web Demo)"
         },
         tags: {
-          print3d: "3D Printing", electronics: "Electronics", signal: "Signal Processing (FFT)", kinematics: "Kinematic Modelling", mechanics: "Mechanics", simulation: "Simulation",
-          sensors: "Sensors & Measurements", regression: "Linear Regression", teamwork: "Teamwork", health: "Connected Health"
+          print3d: "3D Printing", electronics: "Electronics", signal: "Signal Processing (sEMG)", kinematics: "Kinematic Modelling", mechanics: "Mechanics", simulation: "Simulation",
+          sensors: "Sensors & Measurements", math: "Mathematics", regression: "Linear Regression", teamwork: "Teamwork", health: "Connected Health (HDS / GDPR)"
         },
         skills: {
           title: "Skills & Languages", cat1: "Programming Languages", cat2: "Software & Environments", cat3: "Languages",
