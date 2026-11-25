@@ -8,719 +8,132 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #10b981;
-      --primary-hover: #059669;
-      --bg: #ffffff;
-      --bg-card: #f1f5f9;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --border: rgba(15, 23, 42, 0.12);
-      --nav-bg: #ffffff;
-      --hero-1: #022c22;
-      --hero-2: #064e3b;
-      --hero-3: #065f46;
-    }
-
-    :root[data-theme="dark"] {
-      --bg: #0f172a;
-      --bg-card: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #cbd5e1;
-      --border: rgba(255, 255, 255, 0.15);
-      --nav-bg: #0f172a;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
-    body {
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: background-color 0.3s, color 0.3s;
-      overflow-x: hidden;
-    }
-
-    /* ===== NAVBAR ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: var(--nav-bg);
-      border-bottom: 1px solid var(--border);
-      transition: background-color 0.3s;
-    }
-
-    nav {
-      width: 90%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1.1rem 0;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--primary); }
-
-    .nav-actions {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    .icon-btn {
-      background: none;
-      border: none;
-      color: var(--text-main);
-      font-size: 1.15rem;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .icon-btn:hover { color: var(--primary); }
-
-    .lang-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      padding: 0.35rem 0.7rem;
-      border-radius: 0.5rem;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .lang-btn:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    /* ===== HERO VERT ===== */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(180deg, var(--hero-1) 0%, var(--hero-2) 55%, var(--hero-3) 100%);
-      color: #fff;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      width: 90%;
-      max-width: 1400px;
-      margin: 0 auto;
-      min-height: 560px;
-      padding: 4rem 0;
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    /* ----- Texte à gauche ----- */
-    .eyebrow {
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      border-radius: 9999px;
-      background: rgba(16, 185, 129, 0.18);
-      border: 1px solid rgba(16, 185, 129, 0.45);
-      color: #6ee7b7;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 1.3rem;
-    }
-
-    .hero-name {
-      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #34d399, #a7f3d0);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-tagline {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-tagline span { color: #6ee7b7; padding: 0 0.35rem; }
-
-    .hero-text {
-      font-size: 1.15rem;
-      line-height: 1.85;
-      color: rgba(255,255,255,0.88);
-      max-width: 720px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 0.6rem;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.28);
-      color: #fff;
-      background: rgba(15, 23, 42, 0.35);
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    .btn:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
-
-    .btn-primary {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #04251c;
-    }
-
-    .btn-primary:hover { background: #34d399; }
-
-    .hero-interests {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 2.2rem;
-    }
-
-    .hero-interests .label {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
-      margin-right: 0.3rem;
-    }
-
-    .chip {
-      padding: 0.35rem 0.9rem;
-      border-radius: 9999px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      font-size: 0.9rem;
-    }
-
-    /* ----- Carte de profil à droite ----- */
-    .profile-card {
-      background: rgba(2, 20, 15, 0.55);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 1.25rem;
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.35);
-    }
-
-    .avatar {
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(16, 185, 129, 0.8);
-      background: #0b3b30;
-      margin-bottom: 1.3rem;
-    }
-
-    .profile-card h2 {
-      font-size: 1.45rem;
-      font-weight: 800;
-    }
-
-    .profile-card .role {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #6ee7b7;
-      margin-top: 0.3rem;
-    }
-
-    .profile-card .org {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.8);
-      margin-top: 0.15rem;
-    }
-
-    .profile-card .location {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.7);
-      margin-top: 0.9rem;
-    }
-
-    .profile-card .location i { color: var(--primary); margin-right: 0.4rem; }
-
-    .socials {
-      display: flex;
-      gap: 1.3rem;
-      margin-top: 1.6rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      width: 100%;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    .socials a {
-      color: #fff;
-      transition: color 0.2s, transform 0.2s;
-    }
-
-    .socials a:hover {
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* ===== CONTENU PRINCIPAL ===== */
-    .container {
-      width: 90%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 4rem 0;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
-
-    section h2.section-title {
-      font-size: 1.75rem;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--primary);
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 0.75rem;
-    }
-
-    .stack-list { display: flex; flex-direction: column; gap: 2rem; }
-
-    .card-item {
-      border-left: 4px solid var(--primary);
-      padding: 0.8rem 0 0.8rem 1.8rem;
-    }
-
-    .card-header-with-logo {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-logo {
-      width: 240px;
-      height: 80px;
-      object-fit: contain;
-      background: #ffffff;
-      border-radius: 10px;
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      flex-shrink: 0;
-    }
-
-    .card-header-body { width: 100%; }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      width: 100%;
-    }
-
-    .card-title { font-size: 1.35rem; font-weight: 700; }
-    .card-date { color: var(--primary); font-size: 1.05rem; font-weight: 600; }
-    .card-sub { color: var(--text-muted); font-size: 1.05rem; margin-top: 0.2rem; }
-
-    .inline-link { color: var(--primary); text-decoration: none; }
-    .inline-link:hover { text-decoration: underline; }
-
-    /* ===== DISPOSITION PROJET : IMAGE À GAUCHE, TEXTE À DROITE ===== */
-    .project-card-content {
-      display: flex;
-      align-items: center;
-      gap: 1.8rem;
-      margin-top: 0.75rem;
-    }
-
-    .project-img-thumb {
-      width: 380px;
-      max-height: 280px;
-      object-fit: cover;
-      border-radius: 0.6rem;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-      flex-shrink: 0;
-    }
-
-    .project-img-thumb.contain {
-      object-fit: contain;
-      background-color: var(--bg-card);
-      max-height: 220px;
-    }
-
-    /* ===== CARROUSEL DES 4 CAPTURES MATLAB IHM ===== */
-    .ihm-carousel {
-      width: 380px;
-      height: 290px;
-      flex-shrink: 0;
-    }
-
-    .ihm-carousel-viewport {
-      width: 100%;
-      height: 260px;
-      overflow: hidden;
-      border-radius: 0.6rem;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-    }
-
-    .ihm-carousel-track {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.65s ease-in-out;
-    }
-
-    .ihm-carousel-slide {
-      flex: 0 0 100%;
-      min-width: 0;
-      height: 100%;
-    }
-
-    .ihm-carousel-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .ihm-carousel-controls {
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-    }
-
-    .ihm-carousel-arrow,
-    .ihm-carousel-dot {
-      border: 0;
-      cursor: pointer;
-      color: var(--text-muted);
-      background: transparent;
-    }
-
-    .ihm-carousel-arrow {
-      font-size: 0.9rem;
-      padding: 0.3rem;
-    }
-
-    .ihm-carousel-arrow:hover,
-    .ihm-carousel-dot.active {
-      color: var(--primary);
-    }
-
-    .ihm-carousel-dots {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .ihm-carousel-dot {
-      width: 8px;
-      height: 8px;
-      padding: 0;
-      border-radius: 50%;
-      background: var(--border);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .ihm-carousel-dot.active {
-      background: var(--primary);
-      transform: scale(1.25);
-    }
-
-    /* ===== VARIANTE PORTRAIT (captures d'écran de téléphone, hautes et étroites) ===== */
-    .ihm-carousel.portrait {
-      width: 260px;
-      height: 500px;
-    }
-
-    .ihm-carousel.portrait .ihm-carousel-viewport {
-      height: 470px;
-    }
-
-    .ihm-carousel.portrait .ihm-carousel-slide img {
-      object-fit: contain;
-      background: var(--bg-card);
-    }
-
-    .project-text {
-      flex: 1;
-    }
-
-    .project-list {
-      list-style: none;
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .project-list li {
-      position: relative;
-      padding-left: 1.4rem;
-      font-size: 0.97rem;
-      color: var(--text-main);
-    }
-
-    .project-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.62em;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--primary);
-    }
-
-    .project-list strong { color: var(--primary); font-weight: 700; }
-
-    .project-list code {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0 0.35rem;
-      font-size: 0.88em;
-    }
-
-    /* ===== ACCORDEON / DETAILS DES PROJETS ===== */
-    details.project-details {
-      margin-top: 1rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 0.6rem;
-      overflow: hidden;
-      transition: background 0.2s;
-    }
-
-    details.project-details summary {
-      padding: 0.8rem 1.2rem;
-      font-weight: 600;
-      cursor: pointer;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: var(--text-main);
-    }
-
-    details.project-details summary:hover {
-      background: rgba(16, 185, 129, 0.1);
-      color: var(--primary);
-    }
-
-    .project-actions {
-      padding: 1rem 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .btn-action {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 0.4rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      color: var(--text-main);
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      transition: all 0.2s;
-    }
-
-    .btn-action:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-1px);
-    }
-
-    .skills-container { display: flex; flex-direction: column; gap: 2rem; }
-    .skill-category h3 { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 0.85rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-
-    .tag {
-      background-color: var(--bg-card);
-      color: var(--text-main);
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      font-size: 0.95rem;
-      border: 1px solid var(--border);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 2.5rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1000px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; min-height: 0; }
-      .profile-card { order: -1; max-width: 420px; width: 100%; margin: 0 auto; }
-    }
-
-    @media (max-width: 900px) {
-      nav { grid-template-columns: 1fr auto; }
-      .nav-links { display: none; }
-      .card-header-with-logo { flex-direction: column; align-items: flex-start; }
-      .card-logo { width: 100%; max-width: 240px; }
-      .project-card-content { flex-direction: column; align-items: stretch; }
-      .project-img-thumb { width: 100%; max-width: 100%; }
-      .ihm-carousel { width: 100%; max-width: 100%; }
-      .ihm-carousel.portrait { width: 100%; max-width: 280px; margin: 0 auto; }
-    }
-
-    /* ===== OPTIMISATION MOBILE (< 768px) ===== */
-    @media (max-width: 768px) {
-      html { scroll-padding-top: 60px; }
-
-      .container {
-        width: 94%;
-        padding: 2.5rem 0;
-        gap: 2.5rem;
-      }
-
-      .hero-inner {
-        width: 94%;
-        padding: 2.5rem 0;
-        gap: 2rem;
-      }
-
-      .hero-name {
-        font-size: 2.2rem;
-      }
-
-      .hero-tagline {
-        font-size: 1.05rem;
-      }
-
-      .hero-text {
-        font-size: 1rem;
-        line-height: 1.65;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .profile-card {
-        padding: 1.8rem 1.2rem;
-      }
-
-      .avatar {
-        width: 140px;
-        height: 140px;
-      }
-
-      .card-item {
-        padding-left: 1rem;
-      }
-
-      .card-title {
-        font-size: 1.15rem;
-      }
-
-      .card-date {
-        font-size: 0.95rem;
-      }
-
-      .project-actions {
-        flex-direction: column;
-      }
-
-      .btn-action {
-        width: 100%;
-      }
-
-      .tag {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-      }
+    :root{--primary:#10b981;--bg:#fff;--bg-card:#f1f5f9;--text-main:#0f172a;--text-muted:#475569;--border:rgba(15,23,42,.12);--nav-bg:#fff}
+    :root[data-theme="dark"]{--bg:#0f172a;--bg-card:#1e293b;--text-main:#f8fafc;--text-muted:#cbd5e1;--border:rgba(255,255,255,.15);--nav-bg:#0f172a}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:80px}
+    body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text-main);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;transition:background-color .3s,color .3s;overflow-x:hidden}
+    nav,.hero-inner,.container{width:90%;max-width:1400px;margin:0 auto}
+
+    /* NAVBAR */
+    header{position:sticky;top:0;z-index:50;background:var(--nav-bg);border-bottom:1px solid var(--border);transition:background-color .3s}
+    nav{padding:1.1rem 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+    .logo{font-size:1.3rem;font-weight:700;color:var(--text-main);text-decoration:none}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:var(--text-main);text-decoration:none;font-weight:600;font-size:1.05rem;transition:color .2s}
+    .nav-links a:hover,.icon-btn:hover{color:var(--primary)}
+    .nav-actions{display:flex;justify-content:flex-end;align-items:center;gap:1.2rem}
+    .icon-btn{background:none;border:none;color:var(--text-main);font-size:1.15rem;cursor:pointer;transition:color .2s}
+    .lang-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--bg-card);border:1px solid var(--border);color:var(--text-main);padding:.35rem .7rem;border-radius:.5rem;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s}
+    .lang-btn:hover{border-color:var(--primary);color:var(--primary)}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#022c22 0%,#064e3b 55%,#065f46 100%);color:#fff}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+    .hero-inner{position:relative;z-index:2;min-height:560px;padding:4rem 0;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center}
+    .eyebrow{display:inline-block;padding:.35rem 1rem;border-radius:9999px;background:rgba(16,185,129,.18);border:1px solid rgba(16,185,129,.45);color:#6ee7b7;font-size:.9rem;font-weight:600;margin-bottom:1.3rem}
+    .hero-name{font-size:clamp(2.6rem,5.5vw,4.4rem);font-weight:800;line-height:1.1;margin-bottom:1rem;background:linear-gradient(90deg,#34d399,#a7f3d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-tagline{font-size:1.3rem;font-weight:600;margin-bottom:1.5rem}
+    .hero-tagline span{color:#6ee7b7;padding:0 .35rem}
+    .hero-text{font-size:1.15rem;line-height:1.85;color:rgba(255,255,255,.88);max-width:720px}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.8rem 1.5rem;border-radius:.6rem;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid rgba(255,255,255,.28);color:#fff;background:rgba(15,23,42,.35);transition:background .2s,transform .2s}
+    .btn:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+    .btn-primary{background:var(--primary);border-color:var(--primary);color:#04251c}
+    .btn-primary:hover{background:#34d399}
+    .hero-interests{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:2.2rem}
+    .hero-interests .label{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.7);margin-right:.3rem}
+    .chip{padding:.35rem .9rem;border-radius:9999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:.9rem}
+
+    /* CARTE PROFIL */
+    .profile-card{background:rgba(2,20,15,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);border-radius:1.25rem;padding:2.5rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 20px 45px rgba(0,0,0,.35)}
+    .avatar{width:190px;height:190px;border-radius:50%;object-fit:cover;border:4px solid rgba(16,185,129,.8);background:#0b3b30;margin-bottom:1.3rem}
+    .profile-card h2{font-size:1.45rem;font-weight:800}
+    .role{font-size:1.1rem;font-weight:600;color:#6ee7b7;margin-top:.3rem}
+    .org{color:rgba(255,255,255,.8);margin-top:.15rem}
+    .location{font-size:.95rem;color:rgba(255,255,255,.7);margin-top:.9rem}
+    .location i{color:var(--primary);margin-right:.4rem}
+    .socials{display:flex;gap:1.3rem;margin-top:1.6rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.15);width:100%;justify-content:center;font-size:1.5rem}
+    .socials a{color:#fff;transition:color .2s,transform .2s}
+    .socials a:hover{color:var(--primary);transform:translateY(-2px)}
+
+    /* CONTENU */
+    .container{padding:4rem 0;flex:1;display:flex;flex-direction:column;gap:4rem}
+    .section-title{font-size:1.75rem;margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;color:var(--primary);border-bottom:2px solid var(--border);padding-bottom:.75rem}
+    .stack-list{display:flex;flex-direction:column;gap:2rem}
+    .card-item{border-left:4px solid var(--primary);padding:.8rem 0 .8rem 1.8rem}
+    .card-item>p:not(.card-sub){margin-top:.5rem}
+    .card-item .tags{margin-top:1rem}
+    .card-header-with-logo{display:flex;align-items:center;gap:2rem;margin-bottom:.75rem}
+    .card-logo{width:240px;height:80px;object-fit:contain;background:#fff;border-radius:10px;padding:6px 12px;border:1px solid var(--border);box-shadow:0 4px 10px rgba(0,0,0,.15);flex-shrink:0}
+    .card-header-body{width:100%}
+    .card-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;width:100%}
+    .card-title{font-size:1.35rem;font-weight:700}
+    .card-date{color:var(--primary);font-size:1.05rem;font-weight:600}
+    .card-sub{color:var(--text-muted);font-size:1.05rem;margin-top:.2rem}
+    .inline-link{color:var(--primary);text-decoration:none}
+    .inline-link:hover{text-decoration:underline}
+
+    /* PROJETS : IMAGE À GAUCHE, TEXTE À DROITE */
+    .project-card-content{display:flex;align-items:center;gap:1.8rem;margin-top:.75rem}
+    .project-text{flex:1}
+    .project-img-thumb{width:380px;max-height:220px;object-fit:contain;background:var(--bg-card);border-radius:.6rem;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.18);flex-shrink:0}
+    .project-list{list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:.55rem}
+    .project-list li{position:relative;padding-left:1.4rem;font-size:.97rem}
+    .project-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--primary)}
+    .project-list strong{color:var(--primary);font-weight:700}
+
+    /* CARROUSELS (les contrôles sont générés en JS) */
+    .ihm-carousel{width:380px;height:290px;flex-shrink:0}
+    .ihm-carousel.portrait{width:260px;height:500px}
+    .ihm-carousel-viewport{width:100%;height:260px;overflow:hidden;border-radius:.6rem;border:1px solid var(--border);background:var(--bg-card);box-shadow:0 4px 12px rgba(0,0,0,.18)}
+    .portrait .ihm-carousel-viewport{height:470px}
+    .ihm-carousel-track{display:flex;width:100%;height:100%;transition:transform .65s ease-in-out}
+    .ihm-carousel-slide{flex:0 0 100%;min-width:0;height:100%}
+    .ihm-carousel-slide img{display:block;width:100%;height:100%;object-fit:cover}
+    .portrait .ihm-carousel-slide img{object-fit:contain;background:var(--bg-card)}
+    .ihm-carousel-controls{height:30px;display:flex;align-items:center;justify-content:center;gap:.8rem}
+    .ihm-carousel-dots{display:flex;align-items:center;gap:.45rem}
+    .ihm-carousel-arrow,.ihm-carousel-dot{border:0;cursor:pointer;color:var(--text-muted);background:transparent}
+    .ihm-carousel-arrow{font-size:.9rem;padding:.3rem}
+    .ihm-carousel-dot{width:8px;height:8px;padding:0;border-radius:50%;background:var(--border);transition:background .2s,transform .2s}
+    .ihm-carousel-arrow:hover,.ihm-carousel-dot.active{color:var(--primary)}
+    .ihm-carousel-dot.active{background:var(--primary);transform:scale(1.25)}
+
+    /* DÉROULANTS */
+    .project-details{margin-top:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:.6rem;overflow:hidden}
+    .project-details summary{padding:.8rem 1.2rem;font-weight:600;cursor:pointer;user-select:none;display:flex;align-items:center;justify-content:space-between}
+    .project-details summary:hover{background:rgba(16,185,129,.1);color:var(--primary)}
+    .project-actions{padding:1rem 1.2rem;display:flex;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--border);background:var(--bg)}
+    .btn-action{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.5rem 1rem;border-radius:.4rem;font-size:.9rem;font-weight:600;text-decoration:none;color:var(--text-main);background:var(--bg-card);border:1px solid var(--border);transition:all .2s}
+    .btn-action:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
+    .fa-play-circle,.fa-external-link-alt{color:var(--primary)}
+    .fa-file-pdf{color:#ef4444}.fa-file-code{color:#3b82f6}.fa-file-archive{color:#eab308}
+
+    /* COMPÉTENCES */
+    .skills-container{display:flex;flex-direction:column;gap:2rem}
+    .skill-category h3{font-size:1.2rem;color:var(--text-muted);margin-bottom:.85rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.6rem}
+    .tag{background:var(--bg-card);padding:.5rem 1rem;border-radius:.5rem;font-size:.95rem;border:1px solid var(--border)}
+    footer{border-top:1px solid var(--border);text-align:center;padding:2.5rem;color:var(--text-muted);font-size:.9rem}
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){.hero-inner{grid-template-columns:1fr;gap:2.5rem;min-height:0}.profile-card{order:-1;max-width:420px;width:100%;margin:0 auto}}
+    @media(max-width:900px){
+      nav{grid-template-columns:1fr auto}.nav-links{display:none}
+      .card-header-with-logo{flex-direction:column;align-items:flex-start}.card-logo{width:100%;max-width:240px}
+      .project-card-content{flex-direction:column;align-items:stretch}
+      .project-img-thumb,.ihm-carousel,.ihm-carousel.portrait{width:100%;max-width:100%}
+      .ihm-carousel.portrait{max-width:280px;margin:0 auto}
+    }
+    @media(max-width:768px){
+      html{scroll-padding-top:60px}
+      .container{width:94%;padding:2.5rem 0;gap:2.5rem}.hero-inner{width:94%;padding:2.5rem 0;gap:2rem}
+      .hero-name{font-size:2.2rem}.hero-tagline{font-size:1.05rem}.hero-text{font-size:1rem;line-height:1.65}
+      .hero-buttons{flex-direction:column;width:100%}.btn,.btn-action{width:100%}
+      .profile-card{padding:1.8rem 1.2rem}.avatar{width:140px;height:140px}
+      .card-item{padding-left:1rem}.card-title{font-size:1.15rem}.card-date{font-size:.95rem}
+      .project-actions{flex-direction:column}.tag{font-size:.85rem;padding:.4rem .8rem}
     }
   </style>
 </head>
@@ -736,9 +149,7 @@
         <li><a href="#competences" data-i18n="nav.skills">Compétences</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="lang-btn" id="lang-toggle" aria-label="Changer de langue">
-          <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
-        </button>
+        <button class="lang-btn" id="lang-toggle" aria-label="Changer de langue"><i class="fas fa-globe"></i> <span id="lang-text">EN</span></button>
         <button class="icon-btn" id="theme-toggle" aria-label="Changer de thème"><i class="far fa-sun"></i></button>
       </div>
     </nav>
@@ -753,17 +164,11 @@
     </svg>
 
     <div class="hero-inner">
-
-      <!-- Texte à gauche -->
-      <div class="hero-text-col">
+      <div>
         <span class="eyebrow" data-i18n="hero.eyebrow">À propos de moi</span>
         <h1 class="hero-name">Maxence Olivier</h1>
-        <p class="hero-tagline" data-i18n="hero.tagline">
-          Intelligence Artificielle<span>·</span>Électronique & Robotique<span>·</span>Santé connectée<span>·</span>Python
-        </p>
-        <p class="hero-text" data-i18n="hero.text">
-          Passionné par la convergence entre l'électronique, la robotique et les nouvelles technologies, je suis élève ingénieur à l'EPISEN (UPEC) avec une spécialisation en Intelligence Artificielle. Mon objectif : concevoir des systèmes matériels innovants, intelligents et des appareils de santé connectés pour relever les défis du suivi médical et de l'assistance au quotidien.
-        </p>
+        <p class="hero-tagline" data-i18n="hero.tagline">Intelligence Artificielle<span>·</span>Électronique & Robotique<span>·</span>Santé connectée<span>·</span>Python</p>
+        <p class="hero-text" data-i18n="hero.text">Passionné par la convergence entre l'électronique, la robotique et les nouvelles technologies, je suis élève ingénieur à l'EPISEN (UPEC) avec une spécialisation en Intelligence Artificielle. Mon objectif : concevoir des systèmes matériels innovants, intelligents et des appareils de santé connectés pour relever les défis du suivi médical et de l'assistance au quotidien.</p>
 
         <div class="hero-buttons">
           <a href="#projets" class="btn btn-primary"><i class="fas fa-folder-open"></i> <span data-i18n="hero.btnProjects">Voir mes projets</span></a>
@@ -779,24 +184,20 @@
         </div>
       </div>
 
-      <!-- Carte profil à droite -->
       <aside class="profile-card">
-        <img class="avatar" src="photo_de_profil.jpeg" alt="Photo de Maxence Olivier">
+        <img class="avatar" src="photo_de_profil.png" alt="Photo de Maxence Olivier">
         <h2>Maxence Olivier</h2>
         <div class="role" data-i18n="profile.role">Élève Ingénieur – Spécialité IA</div>
         <div class="org">EPISEN – UPEC</div>
         <div class="location"><i class="fas fa-map-marker-alt"></i><span data-i18n="profile.location">Île-de-France</span></div>
-
         <div class="socials">
           <a href="mailto:maxenceolivier2@gmail.com" aria-label="Email"><i class="fas fa-at"></i></a>
-          <a href="https://www.linkedin.com/in/olivier-maxence" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/olivier-maxence" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
       </aside>
-
     </div>
   </div>
 
-  <!-- SECTION PRINCIPALE -->
   <main class="container">
 
     <!-- FORMATIONS -->
@@ -813,12 +214,12 @@
                 <span class="card-date">2025 - 2028</span>
               </div>
               <p class="card-sub">
-                <a href="https://www.linkedin.com/search/results/all/?keywords=EPISEN%20-%20ITS&origin=ENTITY_SEARCH_HOME_HISTORY&heroEntityKey=urn%3Ali%3Aorganization%3A27210886" target="_blank" rel="noopener noreferrer" class="inline-link">EPISEN</a>
-                • <span data-i18n="edu.episenSchool">École rattachée à l'</span><a href="https://www.linkedin.com/groups/156064/" target="_blank" rel="noopener noreferrer" class="inline-link">UPEC</a>
+                <a href="https://www.linkedin.com/search/results/all/?keywords=EPISEN%20-%20ITS&origin=ENTITY_SEARCH_HOME_HISTORY&heroEntityKey=urn%3Ali%3Aorganization%3A27210886" class="inline-link">EPISEN</a>
+                • <span data-i18n="edu.episenSchool">École rattachée à l'</span><a href="https://www.linkedin.com/groups/156064/" class="inline-link">UPEC</a>
               </p>
             </div>
           </div>
-          <p style="margin-top: 0.5rem;"><strong data-i18n="edu.specialtyLabel">Spécialité :</strong> <span data-i18n="edu.specialtyVal">Intelligence Artificielle</span></p>
+          <p><strong data-i18n="edu.specialtyLabel">Spécialité :</strong> <span data-i18n="edu.specialtyVal">Intelligence Artificielle</span></p>
         </div>
 
         <div class="card-item">
@@ -832,7 +233,7 @@
               <p class="card-sub">Lycée du Hainaut, Valenciennes</p>
             </div>
           </div>
-          <p style="margin-top: 0.5rem;" data-i18n="edu.cpgeSub">Technologie et Sciences Industrielles</p>
+          <p data-i18n="edu.cpgeSub">Technologie et Sciences Industrielles</p>
         </div>
 
         <div class="card-item">
@@ -846,7 +247,7 @@
               <p class="card-sub">Lycée Paul Duez, Cambrai</p>
             </div>
           </div>
-          <p style="margin-top: 0.5rem;" data-i18n="edu.bacSub">Spécialité Architecture et Construction</p>
+          <p data-i18n="edu.bacSub">Spécialité Architecture et Construction</p>
         </div>
 
       </div>
@@ -857,74 +258,40 @@
       <h2 class="section-title"><i class="fas fa-folder-open"></i> <span data-i18n="projects.title">Mes Projets</span></h2>
       <div class="stack-list">
 
-        <!-- PROJET MESPI -->
+        <!-- MESPI -->
         <div class="card-item">
           <div class="card-header">
-            <span class="card-title" data-i18n="projects.p1Title">Projet MESPI - Brassard Électronique Connecté (Athletix-Data)</span>
-            <span class="card-date" data-i18n="projects.p1Date">2026 - 2027 (1 an)</span>
+            <span class="card-title" data-i18n="p1.title">Projet MESPI - Brassard Électronique Connecté (Athletix-Data)</span>
+            <span class="card-date" data-i18n="p1.date">2026 - 2027 (1 an)</span>
           </div>
-          <p class="card-sub" data-i18n="projects.p1Sub">Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Rôle : Chef de Projet & Assurance Qualité</p>
+          <p class="card-sub" data-i18n="p1.sub">Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Rôle : Chef de Projet & Assurance Qualité</p>
 
           <div class="project-card-content">
-            <!-- CARROUSEL DES CAPTURES D'ÉCRAN (FORMAT PORTRAIT) -->
             <div class="ihm-carousel portrait" aria-label="Captures d'écran de l'application du projet MESPI">
-              <div class="ihm-carousel-viewport">
-                <div class="ihm-carousel-track">
-                  <div class="ihm-carousel-slide">
-                    <img src="images/MESPI/Image-MESPI.jpeg" alt="Projet MESPI - capture 1">
-                  </div>
-                  <div class="ihm-carousel-slide">
-                    <img src="images/MESPI/Image2-MESPI.jpeg" alt="Projet MESPI - capture 2">
-                  </div>
-                  <div class="ihm-carousel-slide">
-                    <img src="images/MESPI/Image3-MESPI.jpeg" alt="Projet MESPI - capture 3">
-                  </div>
-                  <div class="ihm-carousel-slide">
-                    <img src="images/MESPI/Image4-MESPI.jpeg" alt="Projet MESPI - capture 4">
-                  </div>
-                  <div class="ihm-carousel-slide">
-                    <img src="images/MESPI/Image5-MESPI.jpeg" alt="Projet MESPI - capture 5">
-                  </div>
-                </div>
-              </div>
-
-              <div class="ihm-carousel-controls">
-                <button type="button" class="ihm-carousel-arrow ihm-carousel-prev" aria-label="Image précédente">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="ihm-carousel-dots" aria-label="Choisir une capture">
-                  <button type="button" class="ihm-carousel-dot active" aria-label="Afficher l'image 1" aria-current="true"></button>
-                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 2"></button>
-                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 3"></button>
-                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 4"></button>
-                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 5"></button>
-                </div>
-                <button type="button" class="ihm-carousel-arrow ihm-carousel-next" aria-label="Image suivante">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
+              <div class="ihm-carousel-viewport"><div class="ihm-carousel-track">
+                <div class="ihm-carousel-slide"><img src="images/MESPI/Image-MESPI.jpeg" alt="Projet MESPI - capture 1"></div>
+                <div class="ihm-carousel-slide"><img src="images/MESPI/Image2-MESPI.jpeg" alt="Projet MESPI - capture 2"></div>
+                <div class="ihm-carousel-slide"><img src="images/MESPI/Image3-MESPI.jpeg" alt="Projet MESPI - capture 3"></div>
+                <div class="ihm-carousel-slide"><img src="images/MESPI/Image4-MESPI.jpeg" alt="Projet MESPI - capture 4"></div>
+                <div class="ihm-carousel-slide"><img src="images/MESPI/Image5-MESPI.jpeg" alt="Projet MESPI - capture 5"></div>
+              </div></div>
             </div>
 
-            <!-- TEXTE À DROITE DE L'IMAGE ENRICHI -->
             <div class="project-text">
-              <p data-i18n="projects.p1Desc">
-                Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) mesurant l'activité musculaire électromyographique (sEMG) en temps réel, afin d'évaluer l'intensité de contraction et d'anticiper la fatigue neuromusculaire chez l'athlète.
-              </p>
-
-              <ul class="project-list" style="margin-top: 0.8rem;">
-                <li><strong data-i18n="projects.p1Li1Strong">Gestion de Projet & Qualité :</strong> <span data-i18n="projects.p1Li1Text">Pilotage de l'équipe (4 membres, 180 HM), modélisation des délais (graphe MPM, PERT, Gantt sur 16 semaines), cadrage Agile/SCRUM et respect de la conformité médicale (RGPD, hébergement certifié HDS).</span></li>
-                <li><strong data-i18n="projects.p1Li2Strong">Architecture Électronique :</strong> <span data-i18n="projects.p1Li2Text">Intégration d'un capteur sEMG avec redressement/lissage d'enveloppe analogique, numérisation sur ADC 12 bits à 500 Hz (pas de quantification de 0,806 mV) et alimentation autonome via batterie LiPo.</span></li>
-                <li><strong data-i18n="projects.p1Li3Strong">Traitements & Mathématiques :</strong> <span data-i18n="projects.p1Li3Text">Modélisation complète sous Simulink, filtrage passe-bas à 5 Hz, calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) avec alertes automatiques au-delà du seuil de 75%.</span></li>
-                <li><strong data-i18n="projects.p1Li4Strong">Communication & Application Mobile :</strong> <span data-i18n="projects.p1Li4Text">Transmission sans fil via Bluetooth Low Energy (profil GATT sur mesure à 50 Hz, paquets de 8 octets) vers une interface mobile Flutter intégrant des conseils IA personnalisés.</span></li>
+              <p data-i18n="p1.desc">Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) mesurant l'activité musculaire électromyographique (sEMG) en temps réel, afin d'évaluer l'intensité de contraction et d'anticiper la fatigue neuromusculaire chez l'athlète.</p>
+              <ul class="project-list">
+                <li><strong data-i18n="p1.l1s">Gestion de Projet & Qualité :</strong> <span data-i18n="p1.l1t">Pilotage de l'équipe (4 membres, 180 HM), modélisation des délais (graphe MPM, PERT, Gantt sur 16 semaines), cadrage Agile/SCRUM et respect de la conformité médicale (RGPD, hébergement certifié HDS).</span></li>
+                <li><strong data-i18n="p1.l2s">Architecture Électronique :</strong> <span data-i18n="p1.l2t">Intégration d'un capteur sEMG avec redressement/lissage d'enveloppe analogique, numérisation sur ADC 12 bits à 500 Hz (pas de quantification de 0,806 mV) et alimentation autonome via batterie LiPo.</span></li>
+                <li><strong data-i18n="p1.l3s">Traitements & Mathématiques :</strong> <span data-i18n="p1.l3t">Modélisation complète sous Simulink, filtrage passe-bas à 5 Hz, calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) avec alertes automatiques au-delà du seuil de 75%.</span></li>
+                <li><strong data-i18n="p1.l4s">Communication & Application Mobile :</strong> <span data-i18n="p1.l4t">Transmission sans fil via Bluetooth Low Energy (profil GATT sur mesure à 50 Hz, paquets de 8 octets) vers une interface mobile Flutter intégrant des conseils IA personnalisés.</span></li>
               </ul>
             </div>
           </div>
 
-          <!-- NOUVEAUX TAGS RESTRUCTURÉS -->
-          <div class="tags" style="margin-top: 1rem;">
+          <div class="tags">
             <span class="tag" data-i18n="tags.electronics">Électronique</span>
             <span class="tag" data-i18n="tags.sensors">Capteurs & Mesures</span>
-            <span class="tag" data-i18n="tags.signal">Traitement du signal (sEMG)</span>
+            <span class="tag" data-i18n="tags.semg">Traitement du signal (sEMG)</span>
             <span class="tag" data-i18n="tags.math">Mathématiques</span>
             <span class="tag">MATLAB/Simulink</span>
             <span class="tag">Flutter (Dart)</span>
@@ -934,176 +301,118 @@
             <span class="tag" data-i18n="tags.print3d">Impression 3D</span>
           </div>
 
-          <!-- DÉROULANT : DÉMO + CODE SIMULATION (SIMULINK) -->
           <details class="project-details">
-            <summary>
-              <span><i class="fas fa-paperclip"></i> <span data-i18n="projects.p1Details">Consulter le projet (Démo & Code Simulation)</span></span>
-              <i class="fas fa-chevron-down"></i>
-            </summary>
+            <summary><span><i class="fas fa-paperclip"></i> <span data-i18n="p1.details">Consulter le projet (Démo & Code Simulation)</span></span><i class="fas fa-chevron-down"></i></summary>
             <div class="project-actions">
-              <a href="https://valentin-auger-laboratoire.github.io/athletix-data/" target="_blank" rel="noopener noreferrer" class="btn-action">
-                <i class="fas fa-play-circle" style="color: var(--primary);"></i> <span data-i18n="projects.p1Demo">Démo</span>
-              </a>
-              <a href="AthletixData_EMG_Simulation.slx" download class="btn-action">
-                <i class="fas fa-file-code" style="color: #3b82f6;"></i> <span data-i18n="projects.p1Sim">Code Simulation (Simulink)</span>
-              </a>
+              <a href="https://valentin-auger-laboratoire.github.io/athletix-data/" class="btn-action"><i class="fas fa-play-circle"></i> <span data-i18n="p1.demo">Démo</span></a>
+              <a href="AthletixData_EMG_Simulation.slx" download class="btn-action"><i class="fas fa-file-code"></i> <span data-i18n="p1.sim">Code Simulation (Simulink)</span></a>
             </div>
           </details>
         </div>
 
-        <!-- PROJET ECUE SYSTEMES DE MESURES NOMADES -->
+        <!-- ECUE SYSTÈMES DE MESURES NOMADES -->
         <div class="card-item">
           <div class="card-header">
-            <span class="card-title" data-i18n="projects.p2Title">Projet ECUE Systèmes de Mesures Nomades - IHM MATLAB</span>
+            <span class="card-title" data-i18n="p2.title">Projet ECUE Systèmes de Mesures Nomades - IHM MATLAB</span>
             <span class="card-date">2026</span>
           </div>
-          <p class="card-sub" data-i18n="projects.p2Sub">Projet de groupe à l'EPISEN (Groupe Star Wars) • ECUE 325, groupe de 3, encadré par Régis Fournier</p>
+          <p class="card-sub" data-i18n="p2.sub">Projet de groupe à l'EPISEN (Groupe Star Wars) • ECUE 325, groupe de 3, encadré par Régis Fournier</p>
 
           <div class="project-card-content">
-            <!-- CARROUSEL AUTOMATIQUE DES 4 CAPTURES DU PROJET APP DESIGNER -->
             <div class="ihm-carousel" aria-label="Captures de l'IHM MATLAB du projet Star Wars">
-              <div class="ihm-carousel-viewport">
-                <div class="ihm-carousel-track" id="ihm-carousel-track">
-                  <div class="ihm-carousel-slide">
-                    <img src="image_projet_IHM_starwar.png" alt="Page d'accueil de l'IHM MATLAB Star Wars">
-                  </div>
-                  <div class="ihm-carousel-slide">
-                    <img src="image_projet_IHM_starwar_2.png" alt="Menu Signal de l'IHM MATLAB">
-                  </div>
-                  <div class="ihm-carousel-slide">
-                    <img src="image_projet_IHM_starwar_3.png" alt="Menu Erreur de l'IHM MATLAB">
-                  </div>
-                  <div class="ihm-carousel-slide">
-                    <img src="image_projet_IHM_starwar_4.png" alt="Menu Estimation de l'IHM MATLAB">
-                  </div>
-                </div>
-              </div>
-
-              <div class="ihm-carousel-controls">
-                <button type="button" class="ihm-carousel-arrow" id="ihm-carousel-prev" aria-label="Image précédente">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="ihm-carousel-dots" aria-label="Choisir une capture">
-                  <button type="button" class="ihm-carousel-dot active" aria-label="Afficher l'image 1" aria-current="true"></button>
-                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 2"></button>
-                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 3"></button>
-                  <button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image 4"></button>
-                </div>
-                <button type="button" class="ihm-carousel-arrow" id="ihm-carousel-next" aria-label="Image suivante">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
+              <div class="ihm-carousel-viewport"><div class="ihm-carousel-track">
+                <div class="ihm-carousel-slide"><img src="image_projet_IHM_starwar.png" alt="Page d'accueil de l'IHM MATLAB Star Wars"></div>
+                <div class="ihm-carousel-slide"><img src="image_projet_IHM_starwar_2.png" alt="Menu Signal de l'IHM MATLAB"></div>
+                <div class="ihm-carousel-slide"><img src="image_projet_IHM_starwar_3.png" alt="Menu Erreur de l'IHM MATLAB"></div>
+                <div class="ihm-carousel-slide"><img src="image_projet_IHM_starwar_4.png" alt="Menu Estimation de l'IHM MATLAB"></div>
+              </div></div>
             </div>
 
-            <!-- TEXTE À DROITE DE L'IMAGE -->
             <div class="project-text">
-              <p data-i18n="projects.p2Intro">Chaîne complète de simulation, d'analyse FFT et de correction de signaux déformés, intégrée dans une IHM MATLAB App Designer.</p>
-
+              <p data-i18n="p2.intro">Chaîne complète de simulation, d'analyse FFT et de correction de signaux déformés, intégrée dans une IHM MATLAB App Designer.</p>
               <ul class="project-list">
-                <li><strong data-i18n="projects.p2Li1Strong">Signal :</strong> <span data-i18n="projects.p2Li1Text">3 harmoniques réglables en temps réel.</span></li>
-                <li><strong data-i18n="projects.p2Li2Strong">Erreurs :</strong> <span data-i18n="projects.p2Li2Text">gain, offset, exponentielle, logarithme, estimées par FFT puis corrigées.</span></li>
-                <li><strong data-i18n="projects.p2Li3Strong">IHM :</strong> <span data-i18n="projects.p2Li3Text">7 pages interactives avec bande-son Star Wars.</span></li>
-                <li><strong data-i18n="projects.p2Li4Strong">Bonus :</strong> <span data-i18n="projects.p2Li4Text">mode « Dark Debug », export CSV et rapport PDF.</span></li>
+                <li><strong data-i18n="p2.l1s">Signal :</strong> <span data-i18n="p2.l1t">3 harmoniques réglables en temps réel.</span></li>
+                <li><strong data-i18n="p2.l2s">Erreurs :</strong> <span data-i18n="p2.l2t">gain, offset, exponentielle, logarithme, estimées par FFT puis corrigées.</span></li>
+                <li><strong data-i18n="p2.l3s">IHM :</strong> <span data-i18n="p2.l3t">7 pages interactives avec bande-son Star Wars.</span></li>
+                <li><strong data-i18n="p2.l4s">Bonus :</strong> <span data-i18n="p2.l4t">mode « Dark Debug », export CSV et rapport PDF.</span></li>
               </ul>
             </div>
           </div>
-          
-          <div class="tags" style="margin-top: 1rem;">
+
+          <div class="tags">
             <span class="tag">MATLAB</span>
             <span class="tag">App Designer</span>
-            <span class="tag" data-i18n="tags.signal">Traitement du signal (FFT)</span>
+            <span class="tag" data-i18n="tags.fft">Traitement du signal (FFT)</span>
             <span class="tag" data-i18n="tags.sensors">Capteurs & Mesures</span>
             <span class="tag">IHM</span>
             <span class="tag" data-i18n="tags.regression">Régression linéaire</span>
             <span class="tag" data-i18n="tags.teamwork">Travail de groupe</span>
           </div>
 
-          <!-- DÉROULANT POUR ACCÉDER AU RÉSULTAT / CODE / COMPTE RENDU / DEMO WEB -->
           <details class="project-details">
-            <summary>
-              <span><i class="fas fa-paperclip"></i> <span data-i18n="projects.p2Details">Consulter le projet (Compte-rendu & Code Source)</span></span>
-              <i class="fas fa-chevron-down"></i>
-            </summary>
+            <summary><span><i class="fas fa-paperclip"></i> <span data-i18n="p2.details">Consulter le projet (Compte-rendu & Code Source)</span></span><i class="fas fa-chevron-down"></i></summary>
             <div class="project-actions">
-              <a href="compte_rendu_star_wars.pdf" target="_blank" rel="noopener noreferrer" class="btn-action">
-                <i class="fas fa-file-pdf" style="color: #ef4444;"></i> <span data-i18n="projects.p2Pdf">Compte-rendu (PDF)</span>
-              </a>
-              <a href="Projet_MATLAB_Systemes_Mesures_Nomades.zip" download class="btn-action">
-                <i class="fas fa-file-archive" style="color: #eab308;"></i> <span data-i18n="projects.p2Zip">Code Source MATLAB (.zip)</span>
-              </a>
-              <a href="IHM-MATLAB.html" class="btn-action">
-                <i class="fas fa-play-circle" style="color: var(--primary);"></i> <span data-i18n="projects.p2Demo">Tester l'IHM (Démo Web)</span>
-              </a>
+              <a href="compte_rendu_star_wars.pdf" target="_blank" class="btn-action"><i class="fas fa-file-pdf"></i> <span data-i18n="p2.pdf">Compte-rendu (PDF)</span></a>
+              <a href="Projet_MATLAB_Systemes_Mesures_Nomades.zip" download class="btn-action"><i class="fas fa-file-archive"></i> <span data-i18n="p2.zip">Code Source MATLAB (.zip)</span></a>
+              <a href="IHM-MATLAB.html" class="btn-action"><i class="fas fa-play-circle"></i> <span data-i18n="p2.demo">Tester l'IHM (Démo Web)</span></a>
             </div>
           </details>
         </div>
 
-        <!-- PROJET SCRUM - APPLICATION POSTOP SUIVI -->
+        <!-- POSTOP SUIVI -->
         <div class="card-item">
           <div class="card-header">
-            <span class="card-title" data-i18n="projects.p3Title">Projet Scrum - Application de Suivi Post-Opératoire (PostOp Suivi)</span>
-            <span class="card-date" data-i18n="projects.p3Date">2026 (6 mois)</span>
+            <span class="card-title" data-i18n="p3.title">Projet Scrum - Application de Suivi Post-Opératoire (PostOp Suivi)</span>
+            <span class="card-date" data-i18n="p3.date">2026 (6 mois)</span>
           </div>
-          <p class="card-sub" data-i18n="projects.p3Sub">Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Équipe 7</p>
+          <p class="card-sub" data-i18n="p3.sub">Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Équipe 7</p>
 
           <div class="project-card-content">
-            <!-- IMAGE DU PROJET POSTOP SUIVI À GAUCHE (SANS ROIGNAGE) -->
-            <img src="image_projet_scrum.png" alt="Aperçu de l'interface de l'application PostOp Suivi" class="project-img-thumb contain">
-
-            <!-- TEXTE À DROITE DE L'IMAGE -->
+            <img src="image_projet_scrum.png" alt="Aperçu de l'interface de l'application PostOp Suivi" class="project-img-thumb">
             <div class="project-text">
-              <p data-i18n="projects.p3Intro">Conception et développement d'une application web de télésuivi médical à domicile permettant de maintenir le lien entre les patients convalescents et leur équipe soignante en mode Agile/Scrum.</p>
-
+              <p data-i18n="p3.intro">Conception et développement d'une application web de télésuivi médical à domicile permettant de maintenir le lien entre les patients convalescents et leur équipe soignante en mode Agile/Scrum.</p>
               <ul class="project-list">
-                <li><strong data-i18n="projects.p3Li1Strong">Rôle :</strong> <span data-i18n="projects.p3Li1Text">Product Owner (Gestion du backlog, User Stories, Sprint Planning, Dailies & Rétrospectives).</span></li>
-                <li><strong data-i18n="projects.p3Li2Strong">Fonctionnalités :</strong> <span data-i18n="projects.p3Li2Text">Questionnaires quotidiens de symptômes, envoi de photos de plaies pour suivi de cicatrisation et alertes intelligentes en cas de risque.</span></li>
-                <li><strong data-i18n="projects.p3Li3Strong">Architecture :</strong> <span data-i18n="projects.p3Li3Text">Interface dynamique multi-rôles (Espace Patient & Espace Médecin) sécurisée et conforme aux normes de santé.</span></li>
+                <li><strong data-i18n="p3.l1s">Rôle :</strong> <span data-i18n="p3.l1t">Product Owner (Gestion du backlog, User Stories, Sprint Planning, Dailies & Rétrospectives).</span></li>
+                <li><strong data-i18n="p3.l2s">Fonctionnalités :</strong> <span data-i18n="p3.l2t">Questionnaires quotidiens de symptômes, envoi de photos de plaies pour suivi de cicatrisation et alertes intelligentes en cas de risque.</span></li>
+                <li><strong data-i18n="p3.l3s">Architecture :</strong> <span data-i18n="p3.l3t">Interface dynamique multi-rôles (Espace Patient & Espace Médecin) sécurisée et conforme aux normes de santé.</span></li>
               </ul>
             </div>
           </div>
 
-          <div class="tags" style="margin-top: 1rem;">
+          <div class="tags">
             <span class="tag">Agile / Scrum</span>
             <span class="tag">Product Owner</span>
             <span class="tag">HTML / CSS / JS</span>
             <span class="tag">Node.js</span>
             <span class="tag">Supabase</span>
-            <span class="tag" data-i18n="tags.health">Santé connectée</span>
+            <span class="tag" data-i18n="tags.healthShort">Santé connectée</span>
           </div>
 
-          <!-- DÉROULANT POUR ACCÉDER AU CODE ET À LA DÉMO -->
           <details class="project-details">
-            <summary>
-              <span><i class="fas fa-paperclip"></i> <span data-i18n="projects.p3Details">Consulter le projet (Code Source & Démo)</span></span>
-              <i class="fas fa-chevron-down"></i>
-            </summary>
+            <summary><span><i class="fas fa-paperclip"></i> <span data-i18n="p3.details">Consulter le projet (Code Source & Démo)</span></span><i class="fas fa-chevron-down"></i></summary>
             <div class="project-actions">
-              <a href="https://github.com/maxence-olivier/projet-scrum" target="_blank" rel="noopener noreferrer" class="btn-action">
-                <i class="fab fa-github" style="color: var(--text-main);"></i> <span data-i18n="projects.p3Github">Dépôt GitHub du Projet</span>
-              </a>
-              <a href="https://maxence-olivier.github.io/projet-scrum/" target="_blank" rel="noopener noreferrer" class="btn-action">
-                <i class="fas fa-external-link-alt" style="color: var(--primary);"></i> <span data-i18n="projects.p3Demo">Tester la démo en ligne</span>
-              </a>
+              <a href="https://github.com/maxence-olivier/projet-scrum" class="btn-action"><i class="fab fa-github"></i> <span data-i18n="p3.github">Dépôt GitHub du Projet</span></a>
+              <a href="https://maxence-olivier.github.io/projet-scrum/" class="btn-action"><i class="fas fa-external-link-alt"></i> <span data-i18n="p3.demo">Tester la démo en ligne</span></a>
             </div>
           </details>
         </div>
 
-        <!-- PROJET TP ÎLOT PORTAIL (CPGE TSI) -->
+        <!-- TP ÎLOT PORTAIL -->
         <div class="card-item">
           <div class="card-header">
-            <span class="card-title" data-i18n="projects.p4Title">TP Îlot Portail - Modélisation cinématique d'un portail motorisé</span>
+            <span class="card-title" data-i18n="p4.title">TP Îlot Portail - Modélisation cinématique d'un portail motorisé</span>
             <span class="card-date">2024</span>
           </div>
-          <p class="card-sub" data-i18n="projects.p4Sub">Projet de groupe en CPGE TSI (Lycée du Hainaut) • groupe de 4</p>
-          <p style="margin-top: 0.5rem;" data-i18n="projects.p4Intro">Étude d'un portail motorisé : modélisation du mécanisme, mise en équation puis comparaison entre le modèle théorique, la mesure réelle et la simulation.</p>
+          <p class="card-sub" data-i18n="p4.sub">Projet de groupe en CPGE TSI (Lycée du Hainaut) • groupe de 4</p>
+          <p data-i18n="p4.intro">Étude d'un portail motorisé : modélisation du mécanisme, mise en équation puis comparaison entre le modèle théorique, la mesure réelle et la simulation.</p>
 
           <ul class="project-list">
-            <li><strong data-i18n="projects.p4Li1Strong">Modélisation :</strong> <span data-i18n="projects.p4Li1Text">graphe de liaisons, fermeture géométrique de la chaîne et élimination de l'angle intermédiaire β.</span></li>
-            <li><strong data-i18n="projects.p4Li2Strong">Résultats :</strong> <span data-i18n="projects.p4Li2Text">relation entre l'angle du bras moteur et l'ouverture du vantail (0 à 90°), comparée aux mesures réelles.</span></li>
-            <li><strong data-i18n="projects.p4Li3Strong">Simulation :</strong> <span data-i18n="projects.p4Li3Text">animation interactive du mécanisme avec paramètres réglables.</span></li>
+            <li><strong data-i18n="p4.l1s">Modélisation :</strong> <span data-i18n="p4.l1t">graphe de liaisons, fermeture géométrique de la chaîne et élimination de l'angle intermédiaire β.</span></li>
+            <li><strong data-i18n="p4.l2s">Résultats :</strong> <span data-i18n="p4.l2t">relation entre l'angle du bras moteur et l'ouverture du vantail (0 à 90°), comparée aux mesures réelles.</span></li>
+            <li><strong data-i18n="p4.l3s">Simulation :</strong> <span data-i18n="p4.l3t">animation interactive du mécanisme avec paramètres réglables.</span></li>
           </ul>
 
-          <div class="tags" style="margin-top: 1rem;">
+          <div class="tags">
             <span class="tag" data-i18n="tags.kinematics">Modélisation cinématique</span>
             <span class="tag" data-i18n="tags.mechanics">Mécanique</span>
             <span class="tag" data-i18n="tags.simulation">Simulation</span>
@@ -1113,17 +422,10 @@
           </div>
 
           <details class="project-details">
-            <summary>
-              <span><i class="fas fa-paperclip"></i> <span data-i18n="projects.p4Details">Consulter le projet (Présentation & Simulation)</span></span>
-              <i class="fas fa-chevron-down"></i>
-            </summary>
+            <summary><span><i class="fas fa-paperclip"></i> <span data-i18n="p4.details">Consulter le projet (Présentation & Simulation)</span></span><i class="fas fa-chevron-down"></i></summary>
             <div class="project-actions">
-              <a href="tp_ilot_portail.pdf" target="_blank" rel="noopener noreferrer" class="btn-action">
-                <i class="fas fa-file-pdf" style="color: #ef4444;"></i> <span data-i18n="projects.p4Pdf">Présentation (PDF)</span>
-              </a>
-              <a href="simulation_portail.html" class="btn-action">
-                <i class="fas fa-play-circle" style="color: var(--primary);"></i> <span data-i18n="projects.p4Demo">Tester la simulation (Démo Web)</span>
-              </a>
+              <a href="tp_ilot_portail.pdf" target="_blank" class="btn-action"><i class="fas fa-file-pdf"></i> <span data-i18n="p4.pdf">Présentation (PDF)</span></a>
+              <a href="simulation_portail.html" class="btn-action"><i class="fas fa-play-circle"></i> <span data-i18n="p4.demo">Tester la simulation (Démo Web)</span></a>
             </div>
           </details>
         </div>
@@ -1135,322 +437,120 @@
     <section id="competences">
       <h2 class="section-title"><i class="fas fa-code"></i> <span data-i18n="skills.title">Compétences & Langues</span></h2>
       <div class="skills-container">
-
         <div class="skill-category">
           <h3 data-i18n="skills.cat1">Langages Informatiques</h3>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Dart (Flutter)</span>
-            <span class="tag">Matlab</span>
-            <span class="tag">HTML</span>
-          </div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Dart (Flutter)</span><span class="tag">Matlab</span><span class="tag">HTML</span></div>
         </div>
-
         <div class="skill-category">
           <h3 data-i18n="skills.cat2">Logiciels & Environnements</h3>
-          <div class="tags">
-            <span class="tag">Visual Studio Code</span>
-            <span class="tag">Android Studio</span>
-            <span class="tag">Git & GitHub</span>
-            <span class="tag">Cisco</span>
-            <span class="tag">GNS3</span>
-          </div>
+          <div class="tags"><span class="tag">Visual Studio Code</span><span class="tag">Android Studio</span><span class="tag">Git & GitHub</span><span class="tag">Cisco</span><span class="tag">GNS3</span></div>
         </div>
-
         <div class="skill-category">
           <h3 data-i18n="skills.cat3">Langues</h3>
-          <div class="tags">
-            <span class="tag" data-i18n="skills.english">Anglais (Niveau B2)</span>
-            <span class="tag" data-i18n="skills.german">Allemand (Niveau A2)</span>
-          </div>
+          <div class="tags"><span class="tag" data-i18n="skills.english">Anglais (Niveau B2)</span><span class="tag" data-i18n="skills.german">Allemand (Niveau A2)</span></div>
         </div>
-
       </div>
     </section>
 
   </main>
 
-  <footer>
-    <p>&copy; 2026 Maxence Olivier. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
-  </footer>
+  <footer><p>&copy; 2026 Maxence Olivier. <span data-i18n="footer.rights">Tous droits réservés.</span></p></footer>
 
   <script>
-    /* ===== THÈME SOMBRE / CLAIR ===== */
-    const root = document.documentElement;
-    const btn = document.getElementById('theme-toggle');
-    const icon = btn.querySelector('i');
+    const root = document.documentElement, $ = s => document.querySelector(s);
+    const store = (k, v) => { try { return v === undefined ? localStorage.getItem(k) : localStorage.setItem(k, v); } catch (e) {} };
 
-    function applyTheme(t) {
-      root.setAttribute('data-theme', t);
-      icon.className = t === 'dark' ? 'far fa-sun' : 'far fa-moon';
-    }
+    /* Liens externes : ouverture dans un nouvel onglet */
+    document.querySelectorAll('a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });
 
-    let savedTheme = null;
-    try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
-    applyTheme(savedTheme || 'dark');
+    /* Thème sombre / clair */
+    const themeIcon = $('#theme-toggle i');
+    const applyTheme = t => { root.dataset.theme = t; themeIcon.className = t === 'dark' ? 'far fa-sun' : 'far fa-moon'; };
+    applyTheme(store('theme') || 'dark');
+    $('#theme-toggle').onclick = () => { const t = root.dataset.theme === 'dark' ? 'light' : 'dark'; applyTheme(t); store('theme', t); };
 
-    btn.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
-    });
-
-    /* ===== TRADUCTION SYSTEM (FR / EN) ===== */
-    const translations = {
-      fr: {
-        nav: { about: "À propos", education: "Formations", projects: "Projets", skills: "Compétences" },
-        hero: {
-          eyebrow: "À propos de moi",
-          tagline: "Intelligence Artificielle<span>·</span>Électronique & Robotique<span>·</span>Santé connectée<span>·</span>Python",
-          text: "Passionné par la convergence entre l'électronique, la robotique et les nouvelles technologies, je suis élève ingénieur à l'EPISEN (UPEC) avec une spécialisation en Intelligence Artificielle. Mon objectif : concevoir des systèmes matériels innovants, intelligents et des appareils de santé connectés pour relever les défis du suivi médical et de l'assistance au quotidien.",
-          btnProjects: "Voir mes projets",
-          btnCv: "Télécharger mon CV",
-          btnContact: "Me contacter",
-          interestsLabel: "Centres d'intérêt :",
-          chip1: "Intelligence Artificielle",
-          chip2: "Électronique & Robotique",
-          chip3: "Appareils de santé connectés"
-        },
-        profile: { role: "Élève Ingénieur – Spécialité IA", location: "Île-de-France" },
-        edu: {
-          title: "Formations & Diplômes",
-          episenTitle: "Formation ITS (Ingénieur en Technologies pour la Santé)",
-          episenSchool: "École rattachée à l'",
-          specialtyLabel: "Spécialité :",
-          specialtyVal: "Intelligence Artificielle",
-          cpgeTitle: "CPGE TSI (Classe Préparatoire aux Grandes Écoles)",
-          cpgeSub: "Technologie et Sciences Industrielles",
-          bacTitle: "BAC STI2D",
-          bacSub: "Spécialité Architecture et Construction"
-        },
-        projects: {
-          title: "Mes Projets",
-          p1Title: "Projet MESPI - Brassard Électronique Connecté (Athletix-Data)",
-          p1Date: "2026 - 2027 (1 an)",
-          p1Sub: "Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Rôle : Chef de Projet & Assurance Qualité",
-          p1Desc: "Conception et réalisation d'un dispositif biomédical portable (Athletix-Data) mesurant l'activité musculaire électromyographique (sEMG) en temps réel, afin d'évaluer l'intensité de contraction et d'anticiper la fatigue neuromusculaire chez l'athlète.",
-          p1Li1Strong: "Gestion de Projet & Qualité :", p1Li1Text: "Pilotage de l'équipe (4 membres, 180 HM), modélisation des délais (graphe MPM, PERT, Gantt sur 16 semaines), cadrage Agile/SCRUM et respect de la conformité médicale (RGPD, hébergement certifié HDS).",
-          p1Li2Strong: "Architecture Électronique :", p1Li2Text: "Intégration d'un capteur sEMG avec redressement/lissage d'enveloppe analogique, numérisation sur ADC 12 bits à 500 Hz (pas de quantification de 0,806 mV) et alimentation autonome via batterie LiPo.",
-          p1Li3Strong: "Traitements & Mathématiques :", p1Li3Text: "Modélisation complète sous Simulink, filtrage passe-bas à 5 Hz, calcul de la valeur efficace (RMS) sur fenêtre glissante de 200 ms et normalisation (%MVC) avec alertes automatiques au-delà du seuil de 75%.",
-          p1Li4Strong: "Communication & Application Mobile :", p1Li4Text: "Transmission sans fil via Bluetooth Low Energy (profil GATT sur mesure à 50 Hz, paquets de 8 octets) vers une interface mobile Flutter intégrant des conseils IA personnalisés.",
-          p1Details: "Consulter le projet (Démo & Code Simulation)",
-          p1Demo: "Démo",
-          p1Sim: "Code Simulation (Simulink)",
-          p2Title: "Projet ECUE Systèmes de Mesures Nomades - IHM MATLAB",
-          p2Sub: "Projet de groupe à l'EPISEN (Groupe Star Wars) • ECUE 325, groupe de 3, encadré par Régis Fournier",
-          p2Intro: "Chaîne complète de simulation, d'analyse FFT et de correction de signaux déformés, intégrée dans une IHM MATLAB App Designer.",
-          p2Li1Strong: "Signal :", p2Li1Text: "3 harmoniques réglables en temps réel.",
-          p2Li2Strong: "Erreurs :", p2Li2Text: "gain, offset, exponentielle, logarithme, estimées par FFT puis corrigées.",
-          p2Li3Strong: "IHM :", p2Li3Text: "7 pages interactives avec bande-son Star Wars.",
-          p2Li4Strong: "Bonus :", p2Li4Text: "mode « Dark Debug », export CSV et rapport PDF.",
-          p2Details: "Consulter le projet (Compte-rendu & Code Source)",
-          p2Pdf: "Compte-rendu (PDF)", p2Zip: "Code Source MATLAB (.zip)", p2Demo: "Tester l'IHM (Démo Web)",
-          p3Title: "Projet Scrum - Application de Suivi Post-Opératoire (PostOp Suivi)",
-          p3Date: "2026 (6 mois)",
-          p3Sub: "Projet de groupe en école d'ingénieurs (EPISEN / UPEC) • Équipe 7",
-          p3Intro: "Conception et développement d'une application web de télésuivi médical à domicile permettant de maintenir le lien entre les patients convalescents et leur équipe soignante en mode Agile/Scrum.",
-          p3Li1Strong: "Rôle :", p3Li1Text: "Product Owner (Gestion du backlog, User Stories, Sprint Planning, Dailies & Rétrospectives).",
-          p3Li2Strong: "Fonctionnalités :", p3Li2Text: "Questionnaires quotidiens de symptômes, envoi de photos de plaies pour suivi de cicatrisation et alertes intelligentes en cas de risque.",
-          p3Li3Strong: "Architecture :", p3Li3Text: "Interface dynamique multi-rôles (Espace Patient & Espace Médecin) sécurisée et conforme aux normes de santé.",
-          p3Details: "Consulter le projet (Code Source & Démo)",
-          p3Github: "Dépôt GitHub du Projet", p3Demo: "Tester la démo en ligne",
-          p4Title: "TP Îlot Portail - Modélisation cinématique d'un portail motorisé",
-          p4Sub: "Projet de groupe en CPGE TSI (Lycée du Hainaut) • groupe de 4",
-          p4Intro: "Étude d'un portail motorisé : modélisation du mécanisme, mise en équation puis comparaison entre le modèle théorique, la mesure réelle et la simulation.",
-          p4Li1Strong: "Modélisation :", p4Li1Text: "graphe de liaisons, fermeture géométrique de la chaîne et élimination de l'angle intermédiaire β.",
-          p4Li2Strong: "Résultats :", p4Li2Text: "relation entre l'angle du bras moteur et l'ouverture du vantail (0 à 90°), comparée aux mesures réelles.",
-          p4Li3Strong: "Simulation :", p4Li3Text: "animation interactive du mécanisme avec paramètres réglables.",
-          p4Details: "Consulter le projet (Présentation & Simulation)",
-          p4Pdf: "Présentation (PDF)", p4Demo: "Tester la simulation (Démo Web)"
-        },
-        tags: {
-          print3d: "Impression 3D", electronics: "Électronique", signal: "Traitement du signal (sEMG)", kinematics: "Modélisation cinématique", mechanics: "Mécanique", simulation: "Simulation",
-          sensors: "Capteurs & Mesures", math: "Mathématiques", regression: "Régression linéaire", teamwork: "Travail de groupe", health: "Santé connectée (HDS / RGPD)"
-        },
-        skills: {
-          title: "Compétences & Langues", cat1: "Langages Informatiques", cat2: "Logiciels & Environnements", cat3: "Langues",
-          english: "Anglais (Niveau B2)", german: "Allemand (Niveau A2)"
-        },
-        footer: { rights: "Tous droits réservés." }
-      },
-      en: {
-        nav: { about: "About", education: "Education", projects: "Projects", skills: "Skills" },
-        hero: {
-          eyebrow: "About me",
-          tagline: "Artificial Intelligence<span>·</span>Electronics & Robotics<span>·</span>Connected Health<span>·</span>Python",
-          text: "Passionate about the intersection of electronics, robotics, and new technologies, I am an engineering student at EPISEN (UPEC) specializing in Artificial Intelligence. My goal: design innovative, smart hardware systems and connected health devices to tackle daily medical monitoring and assistance challenges.",
-          btnProjects: "View my projects",
-          btnCv: "Download my CV",
-          btnContact: "Contact me",
-          interestsLabel: "Interests:",
-          chip1: "Artificial Intelligence",
-          chip2: "Electronics & Robotics",
-          chip3: "Connected Health Devices"
-        },
-        profile: { role: "Engineering Student – AI Major", location: "Greater Paris, France" },
-        edu: {
-          title: "Education & Qualifications",
-          episenTitle: "Healthcare Technology Engineering Degree (ITS)",
-          episenSchool: "School affiliated with ",
-          specialtyLabel: "Specialty:",
-          specialtyVal: "Artificial Intelligence",
-          cpgeTitle: "CPGE TSI (Intensive STEM Foundation Degree)",
-          cpgeSub: "Technology & Industrial Sciences",
-          bacTitle: "High School Diploma (STI2D)",
-          bacSub: "Architecture & Construction Specialty"
-        },
-        projects: {
-          title: "My Projects",
-          p1Title: "MESPI Project - Connected Electronic Armband (Athletix-Data)",
-          p1Date: "2026 - 2027 (1 year)",
-          p1Sub: "Engineering school group project (EPISEN / UPEC) • Role: Project Manager & QA",
-          p1Desc: "Design and development of a wearable biomedical device (Athletix-Data) measuring real-time electromyographic (sEMG) muscle activity to evaluate contraction intensity and prevent neuromuscular fatigue in athletes.",
-          p1Li1Strong: "Project Management & QA:", p1Li1Text: "Team management (4 members, 180 Person-Hours), timeline modeling (MPM graph, PERT, 16-week Gantt chart), Agile/SCRUM methodology, and compliance oversight (GDPR, HDS certified hosting).",
-          p1Li2Strong: "Electronic Architecture:", p1Li2Text: "Integration of an sEMG sensor with analog envelope smoothing, 12-bit ADC digitization at 500 Hz (0.806 mV resolution step), and autonomous LiPo battery management.",
-          p1Li3Strong: "Signal Processing & Math:", p1Li3Text: "Full Simulink modeling, 5 Hz low-pass filtering, Root Mean Square (RMS) calculation over a 200 ms sliding window, and normalisation (%MVC) with automated alerts above 75%.",
-          p1Li4Strong: "Communication & Mobile App:", p1Li4Text: "Wireless transmission via Bluetooth Low Energy (custom 50 Hz GATT profile, 8-byte packets) to a Flutter mobile app featuring AI-driven personalized insights.",
-          p1Details: "View Project (Demo & Simulation Code)",
-          p1Demo: "Demo",
-          p1Sim: "Simulation Code (Simulink)",
-          p2Title: "Nomadic Measurement Systems Project - MATLAB GUI",
-          p2Sub: "Group project at EPISEN (Star Wars Team) • ECUE 325, team of 3, supervised by Régis Fournier",
-          p2Intro: "Complete simulation, FFT analysis, and signal correction pipeline integrated into a MATLAB App Designer GUI.",
-          p2Li1Strong: "Signal:", p2Li1Text: "3 real-time adjustable harmonics.",
-          p2Li2Strong: "Errors:", p2Li2Text: "gain, offset, exponential, logarithm, estimated via FFT and corrected.",
-          p2Li3Strong: "GUI:", p2Li3Text: "7 interactive pages with Star Wars soundtrack.",
-          p2Li4Strong: "Bonus:", p2Li4Text: "Dark Debug mode, CSV export, and PDF reporting.",
-          p2Details: "View Project (Report & Source Code)",
-          p2Pdf: "Report (PDF)", p2Zip: "MATLAB Source Code (.zip)", p2Demo: "Test MATLAB GUI (Web Demo)",
-          p3Title: "Scrum Project - Post-Operative Remote Monitoring App",
-          p3Date: "2026 (6 months)",
-          p3Sub: "Engineering school group project (EPISEN / UPEC) • Team 7",
-          p3Intro: "Design and development of a web app for home post-op remote monitoring to maintain continuous care between convalescent patients and medical teams, built using Agile/Scrum.",
-          p3Li1Strong: "Role:", p3Li1Text: "Product Owner (Backlog management, User Stories, Sprint Planning, Dailies & Retrospectives).",
-          p3Li2Strong: "Features:", p3Li2Text: "Daily symptom questionnaires, wound photo uploads for healing tracking, and smart safety alerts.",
-          p3Li3Strong: "Architecture:", p3Li3Text: "Dynamic multi-role interface (Patient & Doctor Portals), secure and compliant with healthcare standards.",
-          p3Details: "View Project (Source Code & Demo)",
-          p3Github: "Project GitHub Repository", p3Demo: "Try Live Demo",
-          p4Title: "Gate Workshop - Kinematic Modelling of a Motorised Gate",
-          p4Sub: "Group project in CPGE TSI (Lycée du Hainaut) • team of 4",
-          p4Intro: "Study of a motorised gate: mechanism modelling, equations, then comparison between the theoretical model, real measurements and simulation.",
-          p4Li1Strong: "Modelling:", p4Li1Text: "joint graph, geometric loop closure and elimination of the intermediate angle β.",
-          p4Li2Strong: "Results:", p4Li2Text: "relationship between motor arm angle and gate opening (0 to 90°), compared with real measurements.",
-          p4Li3Strong: "Simulation:", p4Li3Text: "interactive animation of the mechanism with adjustable parameters.",
-          p4Details: "View Project (Slides & Simulation)",
-          p4Pdf: "Presentation (PDF)", p4Demo: "Try the Simulation (Web Demo)"
-        },
-        tags: {
-          print3d: "3D Printing", electronics: "Electronics", signal: "Signal Processing (sEMG)", kinematics: "Kinematic Modelling", mechanics: "Mechanics", simulation: "Simulation",
-          sensors: "Sensors & Measurements", math: "Mathematics", regression: "Linear Regression", teamwork: "Teamwork", health: "Connected Health (HDS / GDPR)"
-        },
-        skills: {
-          title: "Skills & Languages", cat1: "Programming Languages", cat2: "Software & Environments", cat3: "Languages",
-          english: "English (B2 Level)", german: "German (A2 Level)"
-        },
-        footer: { rights: "All rights reserved." }
-      }
+    /* Traduction : le français est lu directement dans le HTML, seul l'anglais est stocké ici */
+    const en = {
+      "nav.about": "About", "nav.education": "Education", "nav.projects": "Projects", "nav.skills": "Skills",
+      "hero.eyebrow": "About me",
+      "hero.tagline": "Artificial Intelligence<span>·</span>Electronics & Robotics<span>·</span>Connected Health<span>·</span>Python",
+      "hero.text": "Passionate about the intersection of electronics, robotics, and new technologies, I am an engineering student at EPISEN (UPEC) specializing in Artificial Intelligence. My goal: design innovative, smart hardware systems and connected health devices to tackle daily medical monitoring and assistance challenges.",
+      "hero.btnProjects": "View my projects", "hero.btnCv": "Download my CV", "hero.btnContact": "Contact me", "hero.interestsLabel": "Interests:",
+      "hero.chip1": "Artificial Intelligence", "hero.chip2": "Electronics & Robotics", "hero.chip3": "Connected Health Devices",
+      "profile.role": "Engineering Student – AI Major", "profile.location": "Greater Paris, France",
+      "edu.title": "Education & Qualifications", "edu.episenTitle": "Healthcare Technology Engineering Degree (ITS)", "edu.episenSchool": "School affiliated with ",
+      "edu.specialtyLabel": "Specialty:", "edu.specialtyVal": "Artificial Intelligence",
+      "edu.cpgeTitle": "CPGE TSI (Intensive STEM Foundation Degree)", "edu.cpgeSub": "Technology & Industrial Sciences",
+      "edu.bacTitle": "High School Diploma (STI2D)", "edu.bacSub": "Architecture & Construction Specialty",
+      "projects.title": "My Projects",
+      "p1.title": "MESPI Project - Connected Electronic Armband (Athletix-Data)", "p1.date": "2026 - 2027 (1 year)",
+      "p1.sub": "Engineering school group project (EPISEN / UPEC) • Role: Project Manager & QA",
+      "p1.desc": "Design and development of a wearable biomedical device (Athletix-Data) measuring real-time electromyographic (sEMG) muscle activity to evaluate contraction intensity and prevent neuromuscular fatigue in athletes.",
+      "p1.l1s": "Project Management & QA:", "p1.l1t": "Team management (4 members, 180 Person-Hours), timeline modeling (MPM graph, PERT, 16-week Gantt chart), Agile/SCRUM methodology, and compliance oversight (GDPR, HDS certified hosting).",
+      "p1.l2s": "Electronic Architecture:", "p1.l2t": "Integration of an sEMG sensor with analog envelope smoothing, 12-bit ADC digitization at 500 Hz (0.806 mV resolution step), and autonomous LiPo battery management.",
+      "p1.l3s": "Signal Processing & Math:", "p1.l3t": "Full Simulink modeling, 5 Hz low-pass filtering, Root Mean Square (RMS) calculation over a 200 ms sliding window, and normalisation (%MVC) with automated alerts above 75%.",
+      "p1.l4s": "Communication & Mobile App:", "p1.l4t": "Wireless transmission via Bluetooth Low Energy (custom 50 Hz GATT profile, 8-byte packets) to a Flutter mobile app featuring AI-driven personalized insights.",
+      "p1.details": "View Project (Demo & Simulation Code)", "p1.demo": "Demo", "p1.sim": "Simulation Code (Simulink)",
+      "p2.title": "Nomadic Measurement Systems Project - MATLAB GUI", "p2.sub": "Group project at EPISEN (Star Wars Team) • ECUE 325, team of 3, supervised by Régis Fournier",
+      "p2.intro": "Complete simulation, FFT analysis, and signal correction pipeline integrated into a MATLAB App Designer GUI.",
+      "p2.l1s": "Signal:", "p2.l1t": "3 real-time adjustable harmonics.", "p2.l2s": "Errors:", "p2.l2t": "gain, offset, exponential, logarithm, estimated via FFT and corrected.",
+      "p2.l3s": "GUI:", "p2.l3t": "7 interactive pages with Star Wars soundtrack.", "p2.l4s": "Bonus:", "p2.l4t": "Dark Debug mode, CSV export, and PDF reporting.",
+      "p2.details": "View Project (Report & Source Code)", "p2.pdf": "Report (PDF)", "p2.zip": "MATLAB Source Code (.zip)", "p2.demo": "Test MATLAB GUI (Web Demo)",
+      "p3.title": "Scrum Project - Post-Operative Remote Monitoring App", "p3.date": "2026 (6 months)", "p3.sub": "Engineering school group project (EPISEN / UPEC) • Team 7",
+      "p3.intro": "Design and development of a web app for home post-op remote monitoring to maintain continuous care between convalescent patients and medical teams, built using Agile/Scrum.",
+      "p3.l1s": "Role:", "p3.l1t": "Product Owner (Backlog management, User Stories, Sprint Planning, Dailies & Retrospectives).",
+      "p3.l2s": "Features:", "p3.l2t": "Daily symptom questionnaires, wound photo uploads for healing tracking, and smart safety alerts.",
+      "p3.l3s": "Architecture:", "p3.l3t": "Dynamic multi-role interface (Patient & Doctor Portals), secure and compliant with healthcare standards.",
+      "p3.details": "View Project (Source Code & Demo)", "p3.github": "Project GitHub Repository", "p3.demo": "Try Live Demo",
+      "p4.title": "Gate Workshop - Kinematic Modelling of a Motorised Gate", "p4.sub": "Group project in CPGE TSI (Lycée du Hainaut) • team of 4",
+      "p4.intro": "Study of a motorised gate: mechanism modelling, equations, then comparison between the theoretical model, real measurements and simulation.",
+      "p4.l1s": "Modelling:", "p4.l1t": "joint graph, geometric loop closure and elimination of the intermediate angle β.",
+      "p4.l2s": "Results:", "p4.l2t": "relationship between motor arm angle and gate opening (0 to 90°), compared with real measurements.",
+      "p4.l3s": "Simulation:", "p4.l3t": "interactive animation of the mechanism with adjustable parameters.",
+      "p4.details": "View Project (Slides & Simulation)", "p4.pdf": "Presentation (PDF)", "p4.demo": "Try the Simulation (Web Demo)",
+      "tags.print3d": "3D Printing", "tags.electronics": "Electronics", "tags.semg": "Signal Processing (sEMG)", "tags.fft": "Signal Processing (FFT)",
+      "tags.kinematics": "Kinematic Modelling", "tags.mechanics": "Mechanics", "tags.simulation": "Simulation", "tags.sensors": "Sensors & Measurements",
+      "tags.math": "Mathematics", "tags.regression": "Linear Regression", "tags.teamwork": "Teamwork",
+      "tags.health": "Connected Health (HDS / GDPR)", "tags.healthShort": "Connected Health",
+      "skills.title": "Skills & Languages", "skills.cat1": "Programming Languages", "skills.cat2": "Software & Environments", "skills.cat3": "Languages",
+      "skills.english": "English (B2 Level)", "skills.german": "German (A2 Level)", "footer.rights": "All rights reserved."
     };
-
-    let currentLang = 'fr';
-    const langBtn = document.getElementById('lang-toggle');
-    const langText = document.getElementById('lang-text');
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      document.documentElement.lang = lang;
-      langText.textContent = lang === 'fr' ? 'EN' : 'FR';
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const keys = key.split('.');
-        let val = translations[lang];
-        keys.forEach(k => { if (val) val = val[k]; });
-        if (val) el.innerHTML = val;
-      });
-
-      try { localStorage.setItem('pref_lang', lang); } catch (e) {}
+    const els = [...document.querySelectorAll('[data-i18n]')];
+    els.forEach(el => el.dataset.fr = el.innerHTML);
+    let lang = 'fr';
+    function setLanguage(l) {
+      lang = l; root.lang = l; $('#lang-text').textContent = l === 'fr' ? 'EN' : 'FR';
+      els.forEach(el => { const v = l === 'fr' ? el.dataset.fr : en[el.dataset.i18n]; if (v) el.innerHTML = v; });
+      store('pref_lang', l);
     }
+    $('#lang-toggle').onclick = () => setLanguage(lang === 'fr' ? 'en' : 'fr');
+    if (store('pref_lang') === 'en') setLanguage('en');
 
-    langBtn.addEventListener('click', () => {
-      setLanguage(currentLang === 'fr' ? 'en' : 'fr');
-    });
-
-    let savedLang = null;
-    try { savedLang = localStorage.getItem('pref_lang'); } catch (e) {}
-    if (savedLang) setLanguage(savedLang);
-
-    /* ===== CARROUSEL AUTOMATIQUE DES 4 CAPTURES IHM ===== */
-    document.querySelectorAll('.ihm-carousel').forEach((ihmCarousel) => {
-      const track = ihmCarousel.querySelector('.ihm-carousel-track');
-      const slides = ihmCarousel.querySelectorAll('.ihm-carousel-slide');
-      const dots = ihmCarousel.querySelectorAll('.ihm-carousel-dot');
-      const arrows = ihmCarousel.querySelectorAll('.ihm-carousel-arrow');
-      const previousButton = arrows[0];
-      const nextButton = arrows[1];
-
-      let currentSlide = 0;
-      let carouselTimer = null;
-
-      function showIhmSlide(index) {
-        currentSlide = (index + slides.length) % slides.length;
-        track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-
-        dots.forEach((dot, dotIndex) => {
-          const isActive = dotIndex === currentSlide;
-          dot.classList.toggle('active', isActive);
-
-          if (isActive) {
-            dot.setAttribute('aria-current', 'true');
-          } else {
-            dot.removeAttribute('aria-current');
-          }
-        });
-      }
-
-      function stopIhmCarousel() {
-        if (carouselTimer !== null) {
-          clearInterval(carouselTimer);
-          carouselTimer = null;
-        }
-      }
-
-      function startIhmCarousel() {
-        stopIhmCarousel();
-
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          carouselTimer = setInterval(() => {
-            showIhmSlide(currentSlide + 1);
-          }, 3500);
-        }
-      }
-
-      previousButton.addEventListener('click', () => {
-        showIhmSlide(currentSlide - 1);
-        startIhmCarousel();
-      });
-
-      nextButton.addEventListener('click', () => {
-        showIhmSlide(currentSlide + 1);
-        startIhmCarousel();
-      });
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          showIhmSlide(index);
-          startIhmCarousel();
-        });
-      });
-
-      ihmCarousel.addEventListener('mouseenter', stopIhmCarousel);
-      ihmCarousel.addEventListener('mouseleave', startIhmCarousel);
-      ihmCarousel.addEventListener('focusin', stopIhmCarousel);
-      ihmCarousel.addEventListener('focusout', (event) => {
-        if (!ihmCarousel.contains(event.relatedTarget)) {
-          startIhmCarousel();
-        }
-      });
-
-      startIhmCarousel();
+    /* Carrousels automatiques (flèches et points générés ici) */
+    document.querySelectorAll('.ihm-carousel').forEach(c => {
+      const track = c.querySelector('.ihm-carousel-track'), n = track.children.length;
+      const dotsHtml = Array.from({ length: n }, (_, i) => `<button type="button" class="ihm-carousel-dot" aria-label="Afficher l'image ${i + 1}"></button>`).join('');
+      c.insertAdjacentHTML('beforeend', `<div class="ihm-carousel-controls">
+        <button type="button" class="ihm-carousel-arrow" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+        <div class="ihm-carousel-dots">${dotsHtml}</div>
+        <button type="button" class="ihm-carousel-arrow" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button></div>`);
+      const dots = [...c.querySelectorAll('.ihm-carousel-dot')], [prev, next] = c.querySelectorAll('.ihm-carousel-arrow');
+      let cur = 0, timer;
+      const show = i => {
+        cur = (i + n) % n;
+        track.style.transform = `translateX(-${cur * 100}%)`;
+        dots.forEach((d, j) => { d.classList.toggle('active', j === cur); d.setAttribute('aria-current', j === cur); });
+      };
+      const stop = () => clearInterval(timer);
+      const start = () => { stop(); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => show(cur + 1), 3500); };
+      const go = i => { show(i); start(); };
+      prev.onclick = () => go(cur - 1);
+      next.onclick = () => go(cur + 1);
+      dots.forEach((d, i) => d.onclick = () => go(i));
+      c.onmouseenter = c.onfocusin = stop;
+      c.onmouseleave = start;
+      c.onfocusout = e => { if (!c.contains(e.relatedTarget)) start(); };
+      show(0); start();
     });
   </script>
 </body>
