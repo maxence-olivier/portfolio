@@ -215,7 +215,7 @@
               </div>
               <p class="card-sub">
                 <a href="https://www.linkedin.com/search/results/all/?keywords=EPISEN%20-%20ITS&origin=ENTITY_SEARCH_HOME_HISTORY&heroEntityKey=urn%3Ali%3Aorganization%3A27210886" class="inline-link">EPISEN</a>
-                • <span data-i18n="edu.episenSchool">École rattachée à l'</span><a href="https://www.linkedin.com/groups/156064/" class="inline-link">UPEC</a>
+- <span data-i18n="edu.episenSchool">École rattachée à l'</span><a href="https://www.linkedin.com/groups/156064/" class="inline-link">UPEC</a>
               </p>
             </div>
           </div>
@@ -306,6 +306,55 @@
             <div class="project-actions">
               <a href="https://valentin-auger-laboratoire.github.io/athletix-data/" class="btn-action"><i class="fas fa-play-circle"></i> <span data-i18n="p1.demo">Démo</span></a>
               <a href="AthletixData_EMG_Simulation.slx" download class="btn-action"><i class="fas fa-file-code"></i> <span data-i18n="p1.sim">Code Simulation (Simulink)</span></a>
+            </div>
+          </details>
+        </div>
+
+        <!-- MODÉLISATION & ESTIMATION DE SIGNAUX BRUITÉS (GROUPE FRAISE) -->
+        <div class="card-item">
+          <div class="card-header">
+            <span class="card-title" data-i18n="pFraise.title">Simulation de signaux physiologiques bruités et estimation de modèles non linéaires : conception d'une interface MATLAB</span>
+            <span class="card-date">2026</span>
+          </div>
+          <p class="card-sub" data-i18n="pFraise.sub">Projet de groupe à l'EPISEN / UPEC (Groupe Fraise) • équipe de 4, application à la croissance de la fraise</p>
+
+          <div class="project-card-content">
+            <div class="ihm-carousel" aria-label="Captures de l'IHM MATLAB du projet Groupe Fraise">
+              <div class="ihm-carousel-viewport"><div class="ihm-carousel-track">
+                <div class="ihm-carousel-slide"><img src="projet/groupe_fraise/Simulation de signaux physiologique.png" alt="Interface MATLAB du projet Groupe Fraise - capture 1"></div>
+                <div class="ihm-carousel-slide"><img src="projet/groupe_fraise/Simulation de signaux physiologique(1).png" alt="Interface MATLAB du projet Groupe Fraise - capture 2"></div>
+                <div class="ihm-carousel-slide"><img src="projet/groupe_fraise/Simulation de signaux physiologique(2).png" alt="Interface MATLAB du projet Groupe Fraise - capture 3"></div>
+                <div class="ihm-carousel-slide"><img src="projet/groupe_fraise/Simulation de signaux physiologique(3).png" alt="Interface MATLAB du projet Groupe Fraise - capture 4"></div>
+                <div class="ihm-carousel-slide"><img src="projet/groupe_fraise/Simulation de signaux physiologique(4).png" alt="Interface MATLAB du projet Groupe Fraise - capture 5"></div>
+              </div></div>
+            </div>
+
+            <div class="project-text">
+              <p data-i18n="pFraise.intro">Simulation de données physiologiques et de croissance non linéaire perturbées par du bruit de mesure, estimation des paramètres par moindres carrés et conception d'une interface homme-machine (IHM) complète sous MATLAB.</p>
+              <ul class="project-list">
+                <li><strong data-i18n="pFraise.l1s">Modèles & Linéarisation :</strong> <span data-i18n="pFraise.l1t">étude des modèles linéaire, exponentiel, logarithmique et puissance, linéarisés via le tableau de Carneau puis résolus par régression matricielle et méthode des moindres carrés.</span></li>
+                <li><strong data-i18n="pFraise.l2s">Simulation & Bruit :</strong> <span data-i18n="pFraise.l2t">génération du signal théorique, ajout de bruit gaussien (loi normale) ou uniforme, calcul de l'EQM, du coefficient de détermination R² et export des résultats au format CSV.</span></li>
+                <li><strong data-i18n="pFraise.l3s">IHM MATLAB :</strong> <span data-i18n="pFraise.l3t">interface multi-onglets (Accueil, Système, Bruit, Système + bruit, Extraction, Option) avec import/export CSV, mode Debug et génération de rapport PDF.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">MATLAB</span>
+            <span class="tag" data-i18n="tags.leastSquares">Moindres carrés</span>
+            <span class="tag" data-i18n="tags.nonLinear">Modèles non linéaires</span>
+            <span class="tag" data-i18n="tags.noise">Bruit gaussien</span>
+            <span class="tag" data-i18n="tags.math">Mathématiques</span>
+            <span class="tag">IHM</span>
+            <span class="tag" data-i18n="tags.teamwork">Travail de groupe</span>
+          </div>
+
+          <details class="project-details">
+            <summary><span><i class="fas fa-paperclip"></i> <span data-i18n="pFraise.details">Consulter le projet (Compte-rendu, Archive IHM & Captures)</span></span><i class="fas fa-chevron-down"></i></summary>
+            <div class="project-actions">
+              <a href="projet/Simulation de signaux physiologique.pdf" target="_blank" class="btn-action"><i class="fas fa-file-pdf"></i> <span data-i18n="pFraise.pdf">Compte-rendu (PDF)</span></a>
+              <a href="projet/IHM_fraise.zip" download class="btn-action"><i class="fas fa-file-archive"></i> <span data-i18n="pFraise.zip">Archive IHM MATLAB (.zip)</span></a>
+              <a href="projet/groupe_fraise/Simulation de signaux physiologique.png" target="_blank" class="btn-action"><i class="fas fa-external-link-alt"></i> <span data-i18n="pFraise.img">Aperçu IHM</span></a>
             </div>
           </details>
         </div>
@@ -491,6 +540,13 @@
       "p1.l3s": "Signal Processing & Math:", "p1.l3t": "Full Simulink modeling, 5 Hz low-pass filtering, Root Mean Square (RMS) calculation over a 200 ms sliding window, and normalisation (%MVC) with automated alerts above 75%.",
       "p1.l4s": "Communication & Mobile App:", "p1.l4t": "Wireless transmission via Bluetooth Low Energy (custom 50 Hz GATT profile, 8-byte packets) to a Flutter mobile app featuring AI-driven personalized insights.",
       "p1.details": "View Project (Demo & Simulation Code)", "p1.demo": "Demo", "p1.sim": "Simulation Code (Simulink)",
+      "pFraise.title": "Simulation of Noisy Physiological Signals and Non-Linear Model Estimation: MATLAB Interface Design",
+      "pFraise.sub": "Group project at EPISEN / UPEC (Strawberry Team) • team of 4, applied to strawberry growth",
+      "pFraise.intro": "Simulation of physiological and non-linear growth data corrupted by measurement noise, parameter estimation via least squares, and design of a complete Graphical User Interface (GUI) in MATLAB.",
+      "pFraise.l1s": "Models & Linearisation:", "pFraise.l1t": "study of linear, exponential, logarithmic and power models, linearised using the Carneau table and solved via matrix regression and least squares.",
+      "pFraise.l2s": "Simulation & Noise:", "pFraise.l2t": "theoretical signal generation, addition of Gaussian (normal) or uniform noise, MSE and R² determination coefficient computation, and CSV export.",
+      "pFraise.l3s": "MATLAB GUI:", "pFraise.l3t": "multi-tab interface (Home, System, Noise, System + noise, Extraction, Option) with CSV import/export, Debug mode and PDF report generation.",
+      "pFraise.details": "View Project (Report, GUI Archive & Screenshots)", "pFraise.pdf": "Report (PDF)", "pFraise.zip": "MATLAB GUI Archive (.zip)", "pFraise.img": "GUI Preview",
       "p2.title": "Nomadic Measurement Systems Project - MATLAB GUI", "p2.sub": "Group project at EPISEN (Star Wars Team) • ECUE 325, team of 3, supervised by Régis Fournier",
       "p2.intro": "Complete simulation, FFT analysis, and signal correction pipeline integrated into a MATLAB App Designer GUI.",
       "p2.l1s": "Signal:", "p2.l1t": "3 real-time adjustable harmonics.", "p2.l2s": "Errors:", "p2.l2t": "gain, offset, exponential, logarithm, estimated via FFT and corrected.",
@@ -511,6 +567,7 @@
       "tags.print3d": "3D Printing", "tags.electronics": "Electronics", "tags.semg": "Signal Processing (sEMG)", "tags.fft": "Signal Processing (FFT)",
       "tags.kinematics": "Kinematic Modelling", "tags.mechanics": "Mechanics", "tags.simulation": "Simulation", "tags.sensors": "Sensors & Measurements",
       "tags.math": "Mathematics", "tags.regression": "Linear Regression", "tags.teamwork": "Teamwork",
+      "tags.leastSquares": "Least Squares", "tags.nonLinear": "Non-Linear Models", "tags.noise": "Gaussian Noise",
       "tags.health": "Connected Health (HDS / GDPR)", "tags.healthShort": "Connected Health",
       "skills.title": "Skills & Languages", "skills.cat1": "Programming Languages", "skills.cat2": "Software & Environments", "skills.cat3": "Languages",
       "skills.english": "English (B2 Level)", "skills.german": "German (A2 Level)", "footer.rights": "All rights reserved."
