@@ -104,7 +104,7 @@ input[type="number"]:focus{border-color:var(--accent);}
     <h1 class="h1">🍓 IHM du groupe Fraise</h1>
     <p class="sub">Simulation de systèmes, bruit, estimation des paramètres, export/import CSV et rapport</p>
   </div>
-  <a href="../index.html" class="btn-back">
+  <a href="/portfolio/index.html" class="btn-back">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
     Retour au portfolio
   </a>
@@ -369,7 +369,7 @@ Chart.defaults.font.family = "'DM Sans', sans-serif";
 Chart.defaults.scale.grid.color = "rgba(255,255,255,0.06)";
 
 function mkChart(id, datasets, xt, yt, extra = {}) {
-  return new Chart($(id), {
+  return new Chart($("#" + id), {
     type: "line",
     data: { datasets },
     options: {
